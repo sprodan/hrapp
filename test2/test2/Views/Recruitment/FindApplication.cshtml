@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>
+    Заполните форму
+</h2>
+
+<h4>Поиск сотрудников, этап 1. Фильтр из базы</h4>
+<hr>
+<form class="form-horizontal">
+    <div class="form-group dropdown_template">
+        <div class="col-md-2">
+            <p>Образование</p>
+        </div>
+        <div class="col-md-10">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                    Среднее
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Среднее</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Высшее</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Магистр</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Доктор наук</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="form-group checkbox_template">
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="checkbox" aria-label="123">
+                </span>
+                <p>Выбор чек бокс</p>
+            </div>
+        </div>
+    </div>
+    <div class="form-group radio_template">
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="radio" aria-label="456">
+                </span>
+                <p>Выбор радио батон</p>
+            </div>
+        </div>
+    </div>
+</form>
+
+
