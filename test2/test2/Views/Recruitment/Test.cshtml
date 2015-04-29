@@ -1,0 +1,47 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Тест SAAS HR</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    @Styles.Render("~/bundles/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+</head>
+<body>
+<div>
+    <h1>Здравствуйте!</h1>
+    <hr/>
+    <h3>Вашему вниманию представляется тест из 10 вопросов</h3>
+    <hr/>
+
+    <div class="container-fluid test-content">
+        <div class="row">
+            <div class="col-md-5 col-sm-5 col-xs-5 col-lg-5 test-content-right">
+                 Слово
+            </div>
+            <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1 test-content-right">
+                <input type="radio" />
+            </div>
+            <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1 test-content-left">
+                <input type="radio" />
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5 col-lg-5 test-content-left">
+                <label> Слово</label>
+            </div>
+        </div>
+    </div>
+</div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    
+</body>
+</html>

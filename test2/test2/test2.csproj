@@ -353,6 +353,7 @@
     <Content Include="Views\Recruitment\FindApplication.cshtml" />
     <Content Include="Views\Recruitment\FindSend.cshtml" />
     <Content Include="Views\Recruitment\FindWait.cshtml" />
+    <Content Include="Views\Recruitment\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
