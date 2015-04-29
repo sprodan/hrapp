@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <meta name="description" content="My ASP.NET Application" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     @Styles.Render("~/bundles/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -32,11 +33,16 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
+        <hr/>
+
         <footer>
+            <br/>
+            <br/>
+            <hr/>
             <p>&copy; @DateTime.Now.Year - HR SAAS APP</p>
         </footer>
     </div>
+    
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

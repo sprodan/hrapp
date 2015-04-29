@@ -351,6 +351,8 @@
     <Content Include="Views\Home\Adaptation.cshtml" />
     <Content Include="Views\Home\Motivation.cshtml" />
     <Content Include="Views\Recruitment\FindApplication.cshtml" />
+    <Content Include="Views\Recruitment\FindSend.cshtml" />
+    <Content Include="Views\Recruitment\FindWait.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

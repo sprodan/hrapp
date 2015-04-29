@@ -18,5 +18,15 @@ namespace test2.Controllers
         {
             return View();
         }
+
+        public ActionResult FindSend()
+        {
+            return View();
+        }
+
+        public ActionResult FindWait()
+        {
+            return View();
+        }
     }
 }

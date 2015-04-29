@@ -27,12 +27,7 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS.Controllers
             return View();
         }
 
-        public ActionResult Recruitment()
-        {
-            ViewBag.Message = "Страница по подбору персонала";
-
-            return View();
-        }
+        
         public ActionResult Adaptation()
         {
             ViewBag.Message = "Страница по адаптации персонала";
