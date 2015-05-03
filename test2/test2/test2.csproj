@@ -210,7 +210,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdaptationController.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MotivationController.cs" />
     <Compile Include="Controllers\RecruitmentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -348,12 +351,13 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Recruitment\Recruitment.cshtml" />
-    <Content Include="Views\Home\Adaptation.cshtml" />
-    <Content Include="Views\Home\Motivation.cshtml" />
+    <Content Include="Views\Adaptation\Adaptation.cshtml" />
+    <Content Include="Views\Motivation\Motivation.cshtml" />
     <Content Include="Views\Recruitment\FindApplication.cshtml" />
     <Content Include="Views\Recruitment\FindSend.cshtml" />
     <Content Include="Views\Recruitment\FindWait.cshtml" />
     <Content Include="Views\Recruitment\Test.cshtml" />
+    <Content Include="Views\Company\Company.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

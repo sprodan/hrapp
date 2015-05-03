@@ -1,0 +1,210 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Компания</h2>
+<hr>
+<form class="form-horizontal" method="post" role="form" novalidate="novalidate">
+    <div class="form-group">
+        <label class="col-md-2 control-label">Название компании</label>
+        <div class="col-md-10">
+            <input class="form-control" data-val="true" data-val-required="Требуется поле" type="text" value="ООО МОТЫЛЕК">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Сайт</label>
+        <div class="col-md-10">
+            <input class="form-control" data-val="true" data-val-required="Требуется поле" type="text" value="мотылек.рф">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Почта компании</label>
+        <div class="col-md-10">
+            <input class="form-control" data-val="true" data-val-required="Требуется поле" type="text" value="info@motilek.ru">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Изменить">
+        </div>
+    </div>
+</form>
+
+<hr/>
+<br />
+<h4>Позиции в компании</h4>
+<br/>
+<div class="container positions">
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <span class="col-md-12 glyphicon glyphicon-user recicon"></span>
+                <label class="col-md-12 text-center text-md"> .net developer</label>
+                <p class="text-center text-sm">22 человека</p>
+                <p class="text-center">
+                    <a href="#" class="btn btn-primary" role="button">Подробнее</a>
+                    <a href="#" class="btn btn-default" role="button">Изменить</a>
+                </p>
+            </div>
+                
+        </div>
+
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <span class="col-md-12 glyphicon glyphicon-user recicon"></span>
+                <label class="col-md-12 text-center text-md"> php developer</label>
+                <p class="text-center text-sm">22 человека</p>
+                <p class="text-center">
+                    <a href="#" class="btn btn-primary" role="button">Подробнее</a>
+                    <a href="#" class="btn btn-default" role="button">Изменить</a>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <span class="col-md-12 glyphicon glyphicon-user recicon"></span>
+                <label class="col-md-12 text-center text-md"> front-end developer</label>
+                <p class="text-center text-sm">22 человека</p>
+                <p class="text-center">
+                    <a href="#" class="btn btn-primary" role="button">Подробнее</a>
+                    <a href="#" class="btn btn-default" role="button">Изменить</a>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <span class="col-md-12 glyphicon glyphicon-user recicon"></span>
+                <label class="col-md-12 text-center text-md"> objective-c developer</label>
+                <p class="text-center text-sm">22 человека</p>
+                <p class="text-center">
+                    <a href="#" class="btn btn-primary" role="button">Подробнее</a>
+                    <a href="#" class="btn btn-default" role="button">Изменить</a>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <span class="col-md-12 glyphicon glyphicon-user recicon"></span>
+                <label class="col-md-12 text-center text-md"> designer </label>
+                <p class="text-center text-sm">22 человека</p>
+                <p class="text-center">
+                    <a href="#" class="btn btn-primary" role="button">Подробнее</a>
+                    <a href="#" class="btn btn-default" role="button">Изменить</a>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <span class="col-md-12 glyphicon glyphicon-user recicon"></span>
+                <label class="col-md-12 text-center text-md"> project manajer </label>
+                <p class="text-center text-sm">22 человека</p>
+                <p class="text-center">
+                    <a href="#" class="btn btn-primary" role="button">Подробнее</a>
+                    <a href="#" class="btn btn-default" role="button">Изменить</a>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <span class="col-md-12 glyphicon glyphicon-user recicon"></span>
+                <label class="col-md-12 text-center text-md"> CTO </label>
+                <p class="text-center text-sm">22 человека</p>
+                <p class="text-center">
+                    <a href="#" class="btn btn-primary" role="button">Подробнее</a>
+                    <a href="#" class="btn btn-default" role="button">Изменить</a>
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-3">
+            <a href="#" class="col-md-12 thumbnail add-box">
+                <span class="col-md-12 glyphicon glyphicon-plus recicon"></span>
+                <label class="col-md-12 text-center text-big">Добавить Позицию</label>
+            </a>
+        </div>
+    </div>
+    <hr/>
+</div>
+
+<br />
+<h4>Команды</h4>
+<br/>
+<div class="container commands">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <span class="col-md-12 glyphicon glyphicon-star recicon"></span>
+                <label class="col-md-12 text-center text-md"> Команда 1 </label>
+                <p class="text-center text-sm">5 человек</p>
+                <p class="text-center">
+                    <a href="#" class="btn btn-primary" role="button">Подробнее</a>
+                    <a href="#" class="btn btn-default" role="button">Изменить</a>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <span class="col-md-12 glyphicon glyphicon-star recicon"></span>
+                <label class="col-md-12 text-center text-md"> Команда 2 </label>
+                <p class="text-center text-sm">5 человек</p>
+                <p class="text-center">
+                    <a href="#" class="btn btn-primary" role="button">Подробнее</a>
+                    <a href="#" class="btn btn-default" role="button">Изменить</a>
+                </p>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <span class="col-md-12 glyphicon glyphicon-star recicon"></span>
+                <label class="col-md-12 text-center text-md"> Команда 3 </label>
+                <p class="text-center text-sm">5 человек</p>
+                <p class="text-center">
+                    <a href="#" class="btn btn-primary" role="button">Подробнее</a>
+                    <a href="#" class="btn btn-default" role="button">Изменить</a>
+                </p>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <span class="col-md-12 glyphicon glyphicon-star recicon"></span>
+                <label class="col-md-12 text-center text-md"> Команда 4 </label>
+                <p class="text-center text-sm">5 человек</p>
+                <p class="text-center">
+                    <a href="#" class="btn btn-primary" role="button">Подробнее</a>
+                    <a href="#" class="btn btn-default" role="button">Изменить</a>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+            <a href="#" class="col-md-12 thumbnail add-box">
+                <span class="col-md-12 glyphicon glyphicon-plus recicon"></span>
+                <label class="col-md-12 text-center text-big">Добавить Команду</label>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
