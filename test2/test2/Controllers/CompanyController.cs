@@ -28,5 +28,15 @@ namespace test2.Controllers
         {
             return View();
         }
+
+        public ActionResult Position()
+        {
+            return View();
+        }
+
+        public ActionResult Command()
+        {
+            return View();
+        }
     }
 }

@@ -361,6 +361,8 @@
     <Content Include="Views\Company\AddPosition.cshtml" />
     <Content Include="Views\Company\AddCommand.cshtml" />
     <Content Include="Views\Company\AddPerson.cshtml" />
+    <Content Include="Views\Company\Position.cshtml" />
+    <Content Include="Views\Company\Command.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
