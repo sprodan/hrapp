@@ -358,6 +358,9 @@
     <Content Include="Views\Recruitment\FindWait.cshtml" />
     <Content Include="Views\Recruitment\Test.cshtml" />
     <Content Include="Views\Company\Company.cshtml" />
+    <Content Include="Views\Company\AddPosition.cshtml" />
+    <Content Include="Views\Company\AddCommand.cshtml" />
+    <Content Include="Views\Company\AddPerson.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

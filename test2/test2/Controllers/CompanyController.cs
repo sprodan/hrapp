@@ -13,5 +13,20 @@ namespace test2.Controllers
         {
             return View();
         }
+
+        public ActionResult AddPosition()
+        {
+            return View();
+        }
+
+        public ActionResult AddCommand()
+        {
+            return View();
+        }
+
+        public ActionResult AddPerson()
+        {
+            return View();
+        }
     }
 }
