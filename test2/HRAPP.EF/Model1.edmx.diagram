@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ce6a2e0815db4d57bd4b14984d6deb50" Name="All" ZoomLevel="88" >
+        <EntityTypeShape EntityType="HRAPP.EF.Criterion" Width="1.5" PointX="1" PointY="0.5" />
+        <EntityTypeShape EntityType="HRAPP.EF.CriterionCategory" Width="1.5" PointX="2.875" PointY="0.5" />
+        <EntityTypeShape EntityType="HRAPP.EF.CriterionValues" Width="1.5" PointX="0.5" PointY="3.5" />
+        <EntityTypeShape EntityType="HRAPP.EF.CriterionType" Width="1.5" PointX="4.5" PointY="1" />
+        <AssociationConnector Association="HRAPP.EF.CriteriaCategoryCriteriaCategory" />
+        <AssociationConnector Association="HRAPP.EF.CriterionCriteriaCategory" />
+        <AssociationConnector Association="HRAPP.EF.CriterionCriterionType" />
+        <EntityTypeShape EntityType="HRAPP.EF.Test" Width="1.5" PointX="2.75" PointY="5.875" />
+        <EntityTypeShape EntityType="HRAPP.EF.TestValue" Width="1.5" PointX="7.125" PointY="6" />
+        <EntityTypeShape EntityType="HRAPP.EF.TestType" Width="1.5" PointX="0.5" PointY="5.875" />
+        <EntityTypeShape EntityType="HRAPP.EF.TestItem" Width="1.5" PointX="4.75" PointY="5.75" />
+        <AssociationConnector Association="HRAPP.EF.TestTestType" />
+        <AssociationConnector Association="HRAPP.EF.TestItemTest" />
+        <AssociationConnector Association="HRAPP.EF.TestItemTestValue" />
+        <AssociationConnector Association="HRAPP.EF.CriterionCriterionValues" />
+        <EntityTypeShape EntityType="HRAPP.EF.CreterionTest" Width="1.5" PointX="3.5" PointY="3.25" />
+        <AssociationConnector Association="HRAPP.EF.CreterionTestCriterion" />
+        <AssociationConnector Association="HRAPP.EF.TestCreterionTest" />
+        <EntityTypeShape EntityType="HRAPP.EF.Emploee" Width="1.5" PointX="6.5" PointY="3.25" />
+        <EntityTypeShape EntityType="HRAPP.EF.EmploeeCriterion" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HRAPP.EF.Group" Width="1.5" PointX="9.5" PointY="2.625" />
+        <EntityTypeShape EntityType="HRAPP.EF.EmploeeGroup" Width="1.5" PointX="10" PointY="0.5" />
+        <EntityTypeShape EntityType="HRAPP.EF.Company" Width="1.5" PointX="11.5" PointY="4.75" />
+        <AssociationConnector Association="HRAPP.EF.GroupCompany" />
+        <AssociationConnector Association="HRAPP.EF.EmploeeCriterionEmploee" />
+        <AssociationConnector Association="HRAPP.EF.EmploeeCriterionCriterion" />
+        <AssociationConnector Association="HRAPP.EF.EmploeeGroupGroup" />
+        <AssociationConnector Association="HRAPP.EF.EmploeeGroupEmploee" />
+      </Diagram>
+      <Diagram DiagramId="338c1ffc9005460d8cad94bb5ece717c" Name="Criterion" />
+      <Diagram DiagramId="c16cfe4c161041bc892cab26e6924e1b" Name="Company" />
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
