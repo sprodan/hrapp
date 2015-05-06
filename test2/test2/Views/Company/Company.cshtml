@@ -5,24 +5,25 @@
 @model test2.Models.CompanyViewModel
 
 <h2>Компания</h2>
+
 <hr>
 <form class="form-horizontal" method="post" role="form" novalidate="novalidate">
     <div class="form-group">
         @Html.LabelFor(model => model.Name, new {@class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Name, new {htmlAtributes = new {@class = "form-control"}})
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @value = "ОО Мотылек"})
         </div>
     </div>
     <div class="form-group">
-        <label class="col-md-2 control-label">Сайт</label>
+        @Html.LabelFor(model => model.Address, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            <input class="form-control" data-val="true" data-val-required="Требуется поле" type="text" value="мотылек.рф">
+            @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @value = "мотылек.рф" })
         </div>
     </div>
     <div class="form-group">
-        <label class="col-md-2 control-label">Почта компании</label>
+        @Html.LabelFor(model => model.Email, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            <input class="form-control" data-val="true" data-val-required="Требуется поле" type="text" value="info@motilek.ru">
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @value = "инфо@мотылек.рф" })
         </div>
     </div>
     <div class="form-group">

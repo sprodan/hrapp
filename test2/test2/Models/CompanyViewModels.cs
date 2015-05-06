@@ -22,6 +22,9 @@ namespace test2.Models
         // тут должны быть групы а не стринги
         // стинги тип заглушка
         public IEnumerable<string> Groups { get; set; }
+        public IEnumerable<PositionViewModel> Positions { get; set; }
     }
+
+   
 
 }
