@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using HRAPP.EF;
 
 namespace test2.Models
 {
@@ -12,17 +13,43 @@ namespace test2.Models
         public string Name { get; set; }
 
         [Required]
-        [Display(Name = "Почта компании")]
-        public string Email { get; set; }
-
-        [Required]
         [Display(Name = "Сайт")]
         public string Address { get; set; }
 
-        // тут должны быть групы а не стринги
-        // стинги тип заглушка
-        public IEnumerable<string> Groups { get; set; }
+        [Required]
+        [Display(Name = "Почта компании")]
+        public string Mail { get; set; }
+
+        public ICollection<Group> Groups { get; set; }
+
         public IEnumerable<PositionViewModel> Positions { get; set; }
+
+        #region TypeConverter
+
+        public static explicit operator CompanyViewModel(Company model)
+        {
+            return new CompanyViewModel()
+            {
+                Groups = model.Group,
+                Mail = model.Mail,
+                Id = model.Id,
+                Name = model.Name,
+                Address = model.Site
+            };
+        }
+
+        public static implicit operator Company(CompanyViewModel viewModel)
+        {
+            return new Company()
+            {
+                Group = viewModel.Groups,
+                Mail = viewModel.Mail,
+                Id = viewModel.Id,
+                Name = viewModel.Name,
+                Site = viewModel.Address
+            };
+        }
+        #endregion
     }
 
    

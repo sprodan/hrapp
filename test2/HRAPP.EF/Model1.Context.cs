@@ -16,8 +16,9 @@ namespace HRAPP.EF
     public partial class Model1Container : DbContext
     {
         public Model1Container()
-            : base("name=Model1Container")
+            : base("name=AzureConection")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

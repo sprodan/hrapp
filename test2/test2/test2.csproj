@@ -373,6 +373,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HRAPP.BL\HRAPP.BL.csproj">
+      <Project>{db9cc26b-2b9e-4bae-935a-4a531a15da09}</Project>
+      <Name>HRAPP.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HRAPP.EF\HRAPP.EF.csproj">
+      <Project>{1743518c-d804-49db-97d7-74e1d7c4f0d8}</Project>
+      <Name>HRAPP.EF</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

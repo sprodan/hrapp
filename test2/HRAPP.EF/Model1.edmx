@@ -10,7 +10,7 @@
     <EntitySet Name="Criteria" EntityType="HRAPP.EF.Store.Criteria" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="CriterionCategories" EntityType="HRAPP.EF.Store.CriterionCategories" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="CriterionValues" EntityType="HRAPP.EF.Store.CriterionValues" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CriterionTypes1" EntityType="HRAPP.EF.Store.CriterionTypes1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CriterionTypes" EntityType="HRAPP.EF.Store.CriterionTypes1" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Tests" EntityType="HRAPP.EF.Store.Tests" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TestValues" EntityType="HRAPP.EF.Store.TestValues" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TestTypes" EntityType="HRAPP.EF.Store.TestTypes" store:Type="Tables" Schema="dbo" />
@@ -31,7 +31,7 @@
     </AssociationSet>
     <AssociationSet Name="CriterionCriterionType" Association="HRAPP.EF.Store.CriterionCriterionType">
       <End Role="Criterion" EntitySet="Criteria" />
-      <End Role="CriterionType" EntitySet="CriterionTypes1" />
+      <End Role="CriterionType" EntitySet="CriterionTypes" />
     </AssociationSet>
     <AssociationSet Name="TestTestType" Association="HRAPP.EF.Store.TestTestType">
       <End Role="Test" EntitySet="Tests" />
@@ -367,7 +367,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HRAPP.EF" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="Criteria" EntityType="HRAPP.EF.Criterion" />
           <EntitySet Name="CriterionCategories" EntityType="HRAPP.EF.CriterionCategory" />
           <EntitySet Name="CriterionValues" EntityType="HRAPP.EF.CriterionValues" />
@@ -790,7 +790,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="CriterionTypes1">
       <EntityTypeMapping TypeName="IsTypeOf(HRAPP.EF.CriterionType)">
-        <MappingFragment StoreEntitySet="CriterionTypes1">
+        <MappingFragment StoreEntitySet="CriterionTypes">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
