@@ -367,7 +367,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HRAPP.EF" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="Criteria" EntityType="HRAPP.EF.Criterion" />
           <EntitySet Name="CriterionCategories" EntityType="HRAPP.EF.CriterionCategory" />
           <EntitySet Name="CriterionValues" EntityType="HRAPP.EF.CriterionValues" />

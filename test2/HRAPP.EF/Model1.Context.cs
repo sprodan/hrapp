@@ -18,7 +18,6 @@ namespace HRAPP.EF
         public Model1Container()
             : base("name=AzureConection")
         {
-            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

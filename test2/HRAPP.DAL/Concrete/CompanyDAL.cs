@@ -1,8 +1,6 @@
 ﻿using HRAPP.EF;
-using System;
-using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
 
 namespace HRAPP.DAL.Concrete
 {
@@ -19,20 +17,19 @@ namespace HRAPP.DAL.Concrete
 
         public static Company Read(int id)
         {
-            using (Model1Container dbEntities = new Model1Container())
-            {
-                Company company = (dbEntities.Companies.Where(p => p.Id == id)).ToList().First();
+            Model1Container dbEntities = new Model1Container();
 
-                return company;
-            }
+            var company = dbEntities.Companies.Where(p => p.Id == id).ToList().First();
+
+            return company;
+
         }
 
         public static void Update(Company company)
         {
             using (Model1Container dbEntities = new Model1Container())
             {
-                Company _company = dbEntities.Companies.Find(company.Id);
-                _company = company;
+                dbEntities.Entry(company).State = EntityState.Modified;
                 dbEntities.SaveChanges();
             }
         }

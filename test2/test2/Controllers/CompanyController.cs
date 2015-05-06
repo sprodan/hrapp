@@ -23,7 +23,7 @@ namespace test2.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Edit(CompanyViewModel viewModel)
         {
             try
