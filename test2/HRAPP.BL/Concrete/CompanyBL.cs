@@ -13,7 +13,7 @@ namespace HRAPP.BL.Concrete
         }
         public int? Create(Company company)
         {
-            CompanyDAL.Add(company);
+            CompanyDAL.Instance.Add(company);
             return 1;
         }
 
@@ -23,12 +23,12 @@ namespace HRAPP.BL.Concrete
         }
         public static Company Read(int Id)
         {
-            return CompanyDAL.Read(Id);
+            return CompanyDAL.Instance.Read(Id);
         }
 
         public static void Update(Company company)
         {
-            CompanyDAL.Update(company);
+            CompanyDAL.Instance.Update(company);
         }
 
         public bool Delete()

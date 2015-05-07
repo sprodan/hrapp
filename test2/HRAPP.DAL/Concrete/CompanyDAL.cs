@@ -1,4 +1,5 @@
-﻿using HRAPP.EF;
+﻿using System;
+using HRAPP.EF;
 using System.Data.Entity;
 using System.Linq;
 
@@ -6,18 +7,28 @@ namespace HRAPP.DAL.Concrete
 {
     public class CompanyDAL
     {
-        static public void Add(Company company)
+
+        #region Singleton_realization
+
+        private static readonly Lazy<CompanyDAL> _instance =
+            new Lazy<CompanyDAL>(() => new CompanyDAL());
+
+        public static CompanyDAL Instance => _instance.Value;
+
+        #endregion
+
+        public void Add(Company company)
         {
-            using (Model1Container dbEntities = new Model1Container())
+            using (var dbEntities = new Model1Container())
             {
                 dbEntities.Companies.Add(company);
                 dbEntities.SaveChanges();
             }
         }
 
-        public static Company Read(int id)
+        public Company Read(int id)
         {
-            Model1Container dbEntities = new Model1Container();
+            var dbEntities = new Model1Container();
 
             var company = dbEntities.Companies.Where(p => p.Id == id).ToList().First();
 
@@ -25,9 +36,9 @@ namespace HRAPP.DAL.Concrete
 
         }
 
-        public static void Update(Company company)
+        public void Update(Company company)
         {
-            using (Model1Container dbEntities = new Model1Container())
+            using (var dbEntities = new Model1Container())
             {
                 dbEntities.Entry(company).State = EntityState.Modified;
                 dbEntities.SaveChanges();
