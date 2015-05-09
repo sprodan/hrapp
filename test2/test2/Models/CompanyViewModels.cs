@@ -20,7 +20,15 @@ namespace test2.Models
         [Display(Name = "Почта компании")]
         public string Mail { get; set; }
 
-        public ICollection<Group> Groups { get; set; }
+        public ICollection<GroupViewModel> Groups =>  new List<GroupViewModel>
+            {
+                new GroupViewModel {Name = "Компания 1"},
+                new GroupViewModel { Name = "Компания 2"},
+                new GroupViewModel { Name = "Компания 3"},
+                new GroupViewModel { Name = "Компания 4"},
+                new GroupViewModel { Name = "Компания 5"},
+
+            };
 
         public IEnumerable<PositionViewModel> Positions { get; set; }
 
@@ -30,7 +38,7 @@ namespace test2.Models
         {
             return new CompanyViewModel()
             {
-                Groups = model.Group,
+                //Groups = model.Group,
                 Mail = model.Mail,
                 Id = model.Id,
                 Name = model.Name,
@@ -42,7 +50,7 @@ namespace test2.Models
         {
             return new Company()
             {
-                Group = viewModel.Groups,
+                //Group = viewModel.Groups,
                 Mail = viewModel.Mail,
                 Id = viewModel.Id,
                 Name = viewModel.Name,

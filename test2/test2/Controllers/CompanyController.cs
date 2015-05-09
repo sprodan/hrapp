@@ -12,7 +12,6 @@ namespace test2.Controllers
     {
         public ActionResult Company()
         {
-            IEnumerable<PositionViewModel> Positions = GetPositions();
             return View((CompanyViewModel)CompanyBL.Read(1));
         }
 
@@ -43,15 +42,6 @@ namespace test2.Controllers
         }
 
         
-
-        private IEnumerable<PositionViewModel> GetPositions()
-        {
-            return new List<PositionViewModel>
-            {
-                new PositionViewModel {Name = ".Net", UsersCount = 50},
-                new PositionViewModel {Name = "Java", UsersCount = 2}
-            };
-        }
 
         public ActionResult AddPosition()
         {

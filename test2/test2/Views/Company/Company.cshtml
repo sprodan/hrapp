@@ -7,9 +7,9 @@
 <h2>Компания</h2>
 
 <hr>
-@using (Html.BeginForm("Edit", "Company", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new {@class="form-horizontal"}))
+@using (Html.BeginForm("Edit", "Company", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
 {
-    @Html.HiddenFor(model=>model.Id)
+    @Html.HiddenFor(model => model.Id)
     @*@Html.AntiForgeryToken()*@
     <div class="form-group">
         @Html.LabelFor(model => model.Name, new { @class = "col-md-2 control-label" })
@@ -26,7 +26,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Mail, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(model => model.Mail, new { @class = "form-control"})
+            @Html.TextBoxFor(model => model.Mail, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
@@ -40,21 +40,22 @@
 <br />
 <h4>Позиции в компании</h4>
 <br />
+
 <div class="container positions">
     <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="thumbnail">
-                <span class="col-md-12 glyphicon glyphicon-user recicon"></span>
-                <label class="col-md-12 text-center text-md"> .net developer</label>
-                <p class="text-center text-sm">22 человека</p>
-                <p class="text-center">
-                    <a href="../Company/Position" class="btn btn-primary" role="button">Подробнее</a>
-                    <a href="#" class="btn btn-default" role="button">Изменить</a>
-                </p>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <span class="col-md-12 glyphicon glyphicon-user recicon"></span>
+                    <label class="col-md-12 text-center text-md"> .net developer</label>
+                    <p class="text-center text-sm">22 человека</p>
+                    <p class="text-center">
+                        <a href="../Company/Position" class="btn btn-primary" role="button">Подробнее</a>
+                        <a href="#" class="btn btn-default" role="button">Изменить</a>
+                    </p>
+                </div>
+
             </div>
-
-        </div>
-
+        
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="thumbnail">
                 <span class="col-md-12 glyphicon glyphicon-user recicon"></span>
@@ -149,55 +150,22 @@
 <br />
 <div class="container commands">
     <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="thumbnail">
-                <span class="col-md-12 glyphicon glyphicon-star recicon"></span>
-                <label class="col-md-12 text-center text-md"> Команда 1 </label>
-                <p class="text-center text-sm">5 человек</p>
-                <p class="text-center">
-                    <a href="../Company/Command" class="btn btn-primary" role="button">Подробнее</a>
-                    <a href="#" class="btn btn-default" role="button">Изменить</a>
-                </p>
+        @foreach (var group in Model.Groups)
+        {
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <span class="col-md-12 glyphicon glyphicon-star recicon"></span>
+                    <label class="col-md-12 text-center text-md"> @group.Name </label>
+                    <p class="text-center text-sm">@group.EmployeeCount человек</p>
+                    <p class="text-center">
+                        <a href="../Company/Command" class="btn btn-primary" role="button">Подробнее</a>
+                        <a href="#" class="btn btn-default" role="button">Изменить</a>
+                    </p>
+                </div>
+
             </div>
-
-        </div>
-
-        <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="thumbnail">
-                <span class="col-md-12 glyphicon glyphicon-star recicon"></span>
-                <label class="col-md-12 text-center text-md"> Команда 2 </label>
-                <p class="text-center text-sm">5 человек</p>
-                <p class="text-center">
-                    <a href="../Company/Command" class="btn btn-primary" role="button">Подробнее</a>
-                    <a href="#" class="btn btn-default" role="button">Изменить</a>
-                </p>
-            </div>
-
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="thumbnail">
-                <span class="col-md-12 glyphicon glyphicon-star recicon"></span>
-                <label class="col-md-12 text-center text-md"> Команда 3 </label>
-                <p class="text-center text-sm">5 человек</p>
-                <p class="text-center">
-                    <a href="../Company/Command" class="btn btn-primary" role="button">Подробнее</a>
-                    <a href="#" class="btn btn-default" role="button">Изменить</a>
-                </p>
-            </div>
-
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="thumbnail">
-                <span class="col-md-12 glyphicon glyphicon-star recicon"></span>
-                <label class="col-md-12 text-center text-md"> Команда 4 </label>
-                <p class="text-center text-sm">5 человек</p>
-                <p class="text-center">
-                    <a href="../Company/Command" class="btn btn-primary" role="button">Подробнее</a>
-                    <a href="#" class="btn btn-default" role="button">Изменить</a>
-                </p>
-            </div>
-
-        </div>
+        }
+        
 
         <div class="col-md-3  col-sm-6 col-xs-12">
             <a href="../Company/AddCommand" class="col-md-12 thumbnail add-box">

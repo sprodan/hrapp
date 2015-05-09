@@ -23,6 +23,7 @@ namespace HRAPP.BL.Concrete
         }
         public static Company Read(int Id)
         {
+            
             return CompanyDAL.Instance.Read(Id);
         }
 
