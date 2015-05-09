@@ -21,16 +21,34 @@ namespace test2.Models
         public string Mail { get; set; }
 
         public ICollection<GroupViewModel> Groups =>  new List<GroupViewModel>
-            {
-                new GroupViewModel {Name = "Компания 1"},
-                new GroupViewModel { Name = "Компания 2"},
-                new GroupViewModel { Name = "Компания 3"},
-                new GroupViewModel { Name = "Компания 4"},
-                new GroupViewModel { Name = "Компания 5"},
+        {
+            new GroupViewModel {Name = "Компания 1", Id = 1},
+            new GroupViewModel { Name = "Компания 2", Id = 2},
+            new GroupViewModel { Name = "Компания 3", Id = 3},
+            new GroupViewModel { Name = "Компания 4", Id = 4},
+            new GroupViewModel { Name = "Компания 5", Id = 5},
 
-            };
+        };
 
-        public IEnumerable<PositionViewModel> Positions { get; set; }
+        public IEnumerable<PositionViewModel> Positions => new List<PositionViewModel>
+        {
+            new PositionViewModel {Name = ".net Dev", UsersCount = 10, Id = 1},
+            new PositionViewModel {Name = "php Dev", UsersCount = 12, Id = 2},
+            new PositionViewModel {Name = "front-end dev", UsersCount = 30, Id = 3},
+            new PositionViewModel {Name = "designer", UsersCount = 5, Id = 4},
+
+        };
+
+
+        public IEnumerable<EmployeeViewModel> Employees => new List<EmployeeViewModel>
+        {
+            new EmployeeViewModel { Name = "Иванов Иван", IdGroup = 1, IdPosition = 1, TestPassed = true},
+            new EmployeeViewModel { Name = "Николаев Николай", IdGroup = 1, IdPosition = 2},
+            new EmployeeViewModel { Name = "Евгений Евгеньевич", IdGroup = 1, IdPosition = 3, TestPassed = true},
+            new EmployeeViewModel { Name = "Светлана Сватовна", IdGroup = 1, IdPosition = 4, TestPassed = true},
+            new EmployeeViewModel { Name = "Денис Денисов", IdGroup = 1, IdPosition = 1},
+            new EmployeeViewModel { Name = "Анна Ановна", IdGroup = 2, IdPosition = 2},
+        }; 
 
         #region TypeConverter
 

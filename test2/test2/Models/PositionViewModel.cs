@@ -8,6 +8,9 @@ namespace test2.Models
 {
     public class PositionViewModel
     {
+
+        [Required]
+        public int Id { get; set; }
         [Required]
         [Display(Name = "Название позиции")]
         public string Name { get; set; }
