@@ -13,7 +13,7 @@ namespace HRAPP.DAL.Concrete
         private static readonly Lazy<CompanyDAL> _instance =
             new Lazy<CompanyDAL>(() => new CompanyDAL());
 
-        public static CompanyDAL Instance => _instance.Value;
+        public static CompanyDAL Instance = _instance.Value;
 
         #endregion
 

@@ -11,18 +11,20 @@ namespace test2.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int EmployeeCount => 5;
 
-
+        public int EmployeeCount
+        {
+            get { return 5; }
+        }
         #region TypeConverter
 
         public static explicit operator GroupViewModel(Group model)
         {
             return new GroupViewModel
             {
-               Id = model.Id,
-               Name = model.Name
- 
+                Id = model.Id,
+                Name = model.Name
+
             };
         }
 
@@ -32,7 +34,7 @@ namespace test2.Models
             {
                 Id = viewModel.Id,
                 Name = viewModel.Name,
-                
+
             };
         }
         #endregion

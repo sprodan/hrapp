@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using HRAPP.EF;
 
@@ -20,21 +21,7 @@ namespace test2.Models
         [Display(Name = "Почта компании")]
         public string Mail { get; set; }
 
-        public ICollection<GroupViewModel> Groups
-        {
-            get
-            {
-                return new List<GroupViewModel>
-        {
-            new GroupViewModel {Name = "Компания 1", Id = 1},
-            new GroupViewModel { Name = "Компания 2", Id = 2},
-            new GroupViewModel { Name = "Компания 3", Id = 3},
-            new GroupViewModel { Name = "Компания 4", Id = 4},
-            new GroupViewModel { Name = "Компания 5", Id = 5},
-
-        };
-            }
-        } 
+        public ICollection<GroupViewModel> Groups { get; set; }
 
         public IEnumerable<PositionViewModel> Positions
         {
@@ -64,7 +51,7 @@ namespace test2.Models
                     new EmployeeViewModel {Name = "Евгений Евгеньевич", IdGroup = 1, IdPosition = 3, TestPassed = true},
                     new EmployeeViewModel {Name = "Светлана Сватовна", IdGroup = 1, IdPosition = 4, TestPassed = true},
                     new EmployeeViewModel {Name = "Денис Денисов", IdGroup = 1, IdPosition = 1},
-                    new EmployeeViewModel {Name = "Анна Ановна", IdGroup = 2, IdPosition = 2},
+                    new EmployeeViewModel {Name = "Анна Ановна", IdGroup = 3, IdPosition = 2},
                 };
             }
         }
@@ -74,30 +61,41 @@ namespace test2.Models
 
         public static explicit operator CompanyViewModel(Company model)
         {
-            return new CompanyViewModel()
+            CompanyViewModel _view = new CompanyViewModel()
             {
-                //Groups = model.Group,
+                Groups = new Collection<GroupViewModel>(),
                 Mail = model.Mail,
                 Id = model.Id,
                 Name = model.Name,
                 Address = model.Site
             };
+            foreach (var _group in model.Group)
+            {
+                _view.Groups.Add((GroupViewModel)_group);
+            }
+
+            return _view;
         }
 
         public static implicit operator Company(CompanyViewModel viewModel)
         {
-            return new Company()
+            Company _company = new Company()
             {
-                //Group = viewModel.Groups,
+                Group = new List<Group>(),
                 Mail = viewModel.Mail,
                 Id = viewModel.Id,
                 Name = viewModel.Name,
                 Site = viewModel.Address
             };
+            foreach (var _group in viewModel.Groups)
+            {
+                _company.Group.Add(_group);
+            }
+            return _company;
         }
         #endregion
     }
 
-   
+
 
 }
