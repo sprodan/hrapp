@@ -1,4 +1,5 @@
-﻿@{
+﻿@model test2.Models.GroupViewModel
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -7,9 +8,9 @@
 <hr>
 <form class="form-horizontal" method="post" role="form" novalidate="novalidate">
     <div class="form-group">
-        <label class="col-md-2 control-label">Название Команды</label>
+        @Html.LabelFor(model => model.Name, new {@class = "col-md-2 control-label" })
         <div class="col-md-10">
-            <input class="form-control" data-val="true" data-val-required="Требуется поле" type="text" placeholder="Команда 5">
+            @Html.TextBoxFor(model => model.Name, new {@class = "form-control", placeholder="Команда 1" })
         </div>
     </div>
     <div class="form-group">
