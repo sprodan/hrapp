@@ -5,10 +5,10 @@ using HRAPP.EF;
 
 namespace HRAPP.BL.Concrete
 {
-    class GroupBL
+    public class GroupBL
     {
 
-        public int? Create(Group group)
+        public static int? Create(Group group)
         {
             GroupDAL.Instance.Add(group);
             return 1;

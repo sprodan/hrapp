@@ -9,6 +9,8 @@ namespace test2.Models
 {
     public class GroupViewModel
     {
+    
+        public int CompanyId { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
 
@@ -22,6 +24,7 @@ namespace test2.Models
         {
             return new GroupViewModel
             {
+                CompanyId = model.CompanyId,
                 Id = model.Id,
                 Name = model.Name
 
@@ -33,6 +36,7 @@ namespace test2.Models
             return new Group()
             {
                 Id = viewModel.Id,
+                CompanyId = viewModel.CompanyId,
                 Name = viewModel.Name,
 
             };
