@@ -12,7 +12,7 @@ namespace test2.Controllers
     {
         //
         // GET: /Group/
-        public ActionResult Index()
+        public ActionResult Group()
         {
             return View();
         }
@@ -62,7 +62,7 @@ namespace test2.Controllers
         // GET: /Group/Edit/5
         public ActionResult Edit(int id)
         {
-            GroupViewModel _model = (GroupViewModel)GroupBL.Read(id);
+            var _model = (GroupViewModel)GroupBL.Read(id);
             return View(_model);
         }
 

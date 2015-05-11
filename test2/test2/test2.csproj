@@ -212,9 +212,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdaptationController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MotivationController.cs" />
+    <Compile Include="Controllers\PositionController.cs" />
     <Compile Include="Controllers\RecruitmentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -363,11 +365,10 @@
     <Content Include="Views\Recruitment\FindWait.cshtml" />
     <Content Include="Views\Recruitment\Test.cshtml" />
     <Content Include="Views\Company\Company.cshtml" />
-    <Content Include="Views\Company\AddPosition.cshtml" />
-    <Content Include="Views\Company\AddCommand.cshtml" />
-    <Content Include="Views\Company\AddPerson.cshtml" />
-    <Content Include="Views\Company\Position.cshtml" />
-    <Content Include="Views\Company\Command.cshtml" />
+    <Content Include="Views\Position\Create.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Position\Position.cshtml" />
+    <Content Include="Views\Group\Group.cshtml" />
     <Content Include="Views\Group\Edit.cshtml" />
     <Content Include="Views\Group\Create.cshtml" />
   </ItemGroup>

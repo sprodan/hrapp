@@ -43,29 +43,6 @@ namespace test2.Controllers
 
         
 
-        public ActionResult AddPosition()
-        {
-            return View();
-        }
-
-        public ActionResult AddCommand()
-        {
-            return View();
-        }
-
-        public ActionResult AddPerson()
-        {
-            return View();
-        }
-
-        public ActionResult Position()
-        {
-            return View();
-        }
-
-        public ActionResult Command()
-        {
-            return View();
-        }
+        
     }
 }

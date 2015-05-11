@@ -47,15 +47,13 @@
         @foreach (var position in Model.Positions)
         {
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="thumbnail">
-                    <span class="col-md-12 glyphicon glyphicon-user recicon"></span>
-                    <label class="col-md-12 text-center text-md"> @position.Name </label>
-                    <p class="text-center text-sm">@position.UsersCount человек</p>
-                    <p class="text-center">
-                        <a href="../Company/Position" class="btn btn-primary" role="button">Подробнее</a>
-                        <a href="#" class="btn btn-default" role="button">Изменить</a>
-                    </p>
-                </div>
+                <a href="../Position/Position">
+                    <div class="thumbnail">
+                        <span class="col-md-12 glyphicon glyphicon-user recicon"></span>
+                        <label class="col-md-12 text-center text-md"> @position.Name </label>
+                        <p class="text-center text-sm">@position.UsersCount человек</p>
+                    </div>
+                </a>
 
             </div>
 
@@ -63,7 +61,7 @@
         
 
         <div class="col-md-3 col-sm-6 col-xs-12">
-            <a href="../Company/AddPosition" class="col-md-12 thumbnail add-box">
+            <a href="../Position/Create" class="col-md-12 thumbnail add-box">
                 <span class="col-md-12 glyphicon glyphicon-plus recicon"></span>
                 <label class="col-md-12 text-center text-big">Добавить Позицию</label>
             </a>
@@ -80,16 +78,13 @@
         @foreach (var group in Model.Groups)
         {
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="thumbnail">
-                    <span class="col-md-12 glyphicon glyphicon-star recicon"></span>
-                    <label class="col-md-12 text-center text-md"> @group.Name </label>
-                    <p class="text-center text-sm">@group.EmployeeCount человек</p>
-                    <p class="text-center">
-                        <a href="../Company/Command" class="btn btn-primary" role="button">Подробнее</a>
-                        <a href="../Group/Edit/@group.Id" class="btn btn-default" role="button">Изменить</a>
-                    </p>
-                </div>
-
+                <a href="../Group/Edit/@group.Id">
+                    <div class="thumbnail">
+                        <span class="col-md-12 glyphicon glyphicon-star recicon"></span>
+                        <label class="col-md-12 text-center text-md"> @group.Name </label>
+                        <p class="text-center text-sm">@group.EmployeeCount человек</p>
+                    </div>
+                </a>
             </div>
         }
 
@@ -100,8 +95,6 @@
                 <label class="col-md-12 text-center text-big">Добавить Команду</label>
             </a>
         </div>
-
-
     </div>
 </div>
 
@@ -115,7 +108,7 @@
         <div class="col-md-3">
             @if (employee.TestPassed)
             {
-                <div class="thumbnail" style="background: green">
+                <div class="thumbnail" style="background: rgb(212, 255, 146)">
                     <div class=" col-md-12 user-photo">
                         <span class="glyphicon glyphicon-user recicon" aria-hidden="true"></span>
                     </div>

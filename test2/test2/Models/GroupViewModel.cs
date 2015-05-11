@@ -12,6 +12,8 @@ namespace test2.Models
     {
         public int Id { get; set; }
 
+        public int CompanyId { get; set; }
+
         [Required]
         [Display(Name = "Название команды")]
         public string Name { get; set; }
