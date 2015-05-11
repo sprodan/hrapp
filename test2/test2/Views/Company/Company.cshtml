@@ -86,7 +86,7 @@
                     <p class="text-center text-sm">@group.EmployeeCount человек</p>
                     <p class="text-center">
                         <a href="../Company/Command" class="btn btn-primary" role="button">Подробнее</a>
-                        <a href="#" class="btn btn-default" role="button">Изменить</a>
+                        <a href="../Group/Edit/@group.Id" class="btn btn-default" role="button">Изменить</a>
                     </p>
                 </div>
 
@@ -95,7 +95,7 @@
 
 
         <div class="col-md-3  col-sm-6 col-xs-12">
-            <a href="../Company/AddCommand" class="col-md-12 thumbnail add-box">
+            <a href="../Group/Create/@Model.Id" class="col-md-12 thumbnail add-box">
                 <span class="col-md-12 glyphicon glyphicon-plus recicon"></span>
                 <label class="col-md-12 text-center text-big">Добавить Команду</label>
             </a>

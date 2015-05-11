@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using HRAPP.BL.Concrete;
+using test2.Models;
 
 namespace test2.Controllers
 {
@@ -24,18 +26,28 @@ namespace test2.Controllers
 
         //
         // GET: /Group/Create
-        public ActionResult Create()
+        public ActionResult Create(int _companyId)
         {
-            return View();
+            GroupViewModel _view = new GroupViewModel()
+            {
+                CompanyId = _companyId
+            };
+
+            return View(_view);
         }
 
         //
         // POST: /Group/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(GroupViewModel viewModel)
         {
             try
             {
+                if (ModelState.IsValid)
+                {
+                    GroupBL.Create(viewModel);
+                    return RedirectToAction("../Company/Company");
+                }
                 // TODO: Add insert logic here
 
                 return RedirectToAction("Index");
@@ -50,24 +62,31 @@ namespace test2.Controllers
         // GET: /Group/Edit/5
         public ActionResult Edit(int id)
         {
-
-            return View();
+            GroupViewModel _model = (GroupViewModel)GroupBL.Read(id);
+            return View(_model);
         }
 
         //
         // POST: /Group/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(GroupViewModel viewModel)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    GroupBL.Update(viewModel);
+                    return RedirectToAction("../Company/Company");
+                }
+                else
+                {
+                    throw new Exception();
+                }
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+                throw;
             }
         }
 
