@@ -218,6 +218,7 @@
     <Compile Include="Controllers\MotivationController.cs" />
     <Compile Include="Controllers\PositionController.cs" />
     <Compile Include="Controllers\RecruitmentController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -371,6 +372,7 @@
     <Content Include="Views\Group\Group.cshtml" />
     <Content Include="Views\Group\Edit.cshtml" />
     <Content Include="Views\Group\Create.cshtml" />
+    <Content Include="Views\Test\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

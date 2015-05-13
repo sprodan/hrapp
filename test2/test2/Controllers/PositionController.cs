@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace test2.Controllers
 {
-    public class PositionController : Controller
+    public class PositionController :   Controller
     {
         // GET: Position
         public ActionResult Position()
