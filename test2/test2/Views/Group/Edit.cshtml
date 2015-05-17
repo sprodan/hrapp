@@ -1,4 +1,4 @@
-﻿@model test2.Models.GroupViewModel
+﻿@model test2.Models.GroupViewModel  
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -7,7 +7,7 @@
 {
     @Html.AntiForgeryToken()
 
-    <h2>Добавить Команду</h2>
+    <h2>@Model.Name</h2>
     <hr>
     <div class="form-group">
         @Html.ValidationSummary(true)
@@ -15,20 +15,23 @@
         @Html.HiddenFor(model => model.CompanyId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Name, new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Name, new {@class = "form-control" })
+                @Html.TextBoxFor(model => model.Name, new {@class = "form-control"})
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Сохранить" class="btn btn-default" />
+                <input type="submit" value="Сохранить" class="btn btn-default"/>
             </div>
         </div>
     </div>
-     }   
+
+}
+
+@foreach(var employer in )
 
 @*<div>
         @Html.ActionLink("Назад к списку", "Index")

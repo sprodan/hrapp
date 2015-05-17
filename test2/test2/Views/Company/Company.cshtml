@@ -47,12 +47,12 @@
         @foreach (var position in Model.Positions)
         {
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <a href="../Position/Position">
-                    <div class="thumbnail">
+                <a href="../Position/Position" class="thumbnail">
+                    
                         <span class="col-md-12 glyphicon glyphicon-user recicon"></span>
                         <label class="col-md-12 text-center text-md"> @position.Name </label>
                         <p class="text-center text-sm">@position.UsersCount человек</p>
-                    </div>
+                    
                 </a>
 
             </div>
@@ -78,12 +78,12 @@
         @foreach (var group in Model.Groups)
         {
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <a href="../Group/Edit/@group.Id">
-                    <div class="thumbnail">
+                <a href="../Group/Edit/@group.Id" class="thumbnail">
+                    
                         <span class="col-md-12 glyphicon glyphicon-star recicon"></span>
                         <label class="col-md-12 text-center text-md"> @group.Name </label>
                         <p class="text-center text-sm">@group.EmployeeCount человек</p>
-                    </div>
+                        
                 </a>
             </div>
         }

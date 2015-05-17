@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/04/2015 21:08:47
--- Generated from EDMX file: E:\StasProject\hrapp\test2\HRAPP.EF\Model1.edmx
+-- Date Created: 05/17/2015 12:17:53
+-- Generated from EDMX file: C:\hr_git\hrapp\test2\HRAPP.EF\Model1.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -44,6 +44,21 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_TestCreterionTest]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[CreterionTests] DROP CONSTRAINT [FK_TestCreterionTest];
 GO
+IF OBJECT_ID(N'[dbo].[FK_GroupCompany]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Groups] DROP CONSTRAINT [FK_GroupCompany];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmploeeCriterionEmploee]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EmploeeCriterions] DROP CONSTRAINT [FK_EmploeeCriterionEmploee];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmploeeCriterionCriterion]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EmploeeCriterions] DROP CONSTRAINT [FK_EmploeeCriterionCriterion];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmploeeGroupGroup]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EmploeeGroups] DROP CONSTRAINT [FK_EmploeeGroupGroup];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmploeeGroupEmploee]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EmploeeGroups] DROP CONSTRAINT [FK_EmploeeGroupEmploee];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -58,8 +73,8 @@ GO
 IF OBJECT_ID(N'[dbo].[CriterionValues]', 'U') IS NOT NULL
     DROP TABLE [dbo].[CriterionValues];
 GO
-IF OBJECT_ID(N'[dbo].[CriterionTypes1]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[CriterionTypes1];
+IF OBJECT_ID(N'[dbo].[CriterionTypes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CriterionTypes];
 GO
 IF OBJECT_ID(N'[dbo].[Tests]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Tests];
@@ -75,6 +90,21 @@ IF OBJECT_ID(N'[dbo].[TestItems]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[CreterionTests]', 'U') IS NOT NULL
     DROP TABLE [dbo].[CreterionTests];
+GO
+IF OBJECT_ID(N'[dbo].[Emploees]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Emploees];
+GO
+IF OBJECT_ID(N'[dbo].[EmploeeCriterions]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EmploeeCriterions];
+GO
+IF OBJECT_ID(N'[dbo].[Groups]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Groups];
+GO
+IF OBJECT_ID(N'[dbo].[EmploeeGroups]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EmploeeGroups];
+GO
+IF OBJECT_ID(N'[dbo].[Companies]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Companies];
 GO
 
 -- --------------------------------------------------
@@ -194,7 +224,32 @@ CREATE TABLE [dbo].[Companies] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Site] nvarchar(max)  NOT NULL,
-    [Mail] nvarchar(max)  NOT NULL
+    [Mail] nvarchar(max)  NOT NULL,
+    [UserId] int  NOT NULL
+);
+GO
+
+-- Creating table 'Positions'
+CREATE TABLE [dbo].[Positions] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(max)  NOT NULL,
+    [CompanyId] int  NOT NULL
+);
+GO
+
+-- Creating table 'EmploeePositions'
+CREATE TABLE [dbo].[EmploeePositions] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [EmploeeId] int  NOT NULL,
+    [PositionId] int  NOT NULL
+);
+GO
+
+-- Creating table 'Users'
+CREATE TABLE [dbo].[Users] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(max)  NOT NULL,
+    [Password] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -286,6 +341,24 @@ ADD CONSTRAINT [PK_Companies]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
+-- Creating primary key on [Id] in table 'Positions'
+ALTER TABLE [dbo].[Positions]
+ADD CONSTRAINT [PK_Positions]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'EmploeePositions'
+ALTER TABLE [dbo].[EmploeePositions]
+ADD CONSTRAINT [PK_EmploeePositions]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Users'
+ALTER TABLE [dbo].[Users]
+ADD CONSTRAINT [PK_Users]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
@@ -297,6 +370,7 @@ ADD CONSTRAINT [FK_CriteriaCategoryCriteriaCategory]
     REFERENCES [dbo].[CriterionCategories]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CriteriaCategoryCriteriaCategory'
 CREATE INDEX [IX_FK_CriteriaCategoryCriteriaCategory]
@@ -311,6 +385,7 @@ ADD CONSTRAINT [FK_CriterionCriteriaCategory]
     REFERENCES [dbo].[CriterionCategories]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CriterionCriteriaCategory'
 CREATE INDEX [IX_FK_CriterionCriteriaCategory]
@@ -325,6 +400,7 @@ ADD CONSTRAINT [FK_CriterionCriterionType]
     REFERENCES [dbo].[CriterionTypes1]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CriterionCriterionType'
 CREATE INDEX [IX_FK_CriterionCriterionType]
@@ -339,6 +415,7 @@ ADD CONSTRAINT [FK_TestTestType]
     REFERENCES [dbo].[TestTypes]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_TestTestType'
 CREATE INDEX [IX_FK_TestTestType]
@@ -353,6 +430,7 @@ ADD CONSTRAINT [FK_TestItemTest]
     REFERENCES [dbo].[Tests]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_TestItemTest'
 CREATE INDEX [IX_FK_TestItemTest]
@@ -367,6 +445,7 @@ ADD CONSTRAINT [FK_TestItemTestValue]
     REFERENCES [dbo].[TestItems]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_TestItemTestValue'
 CREATE INDEX [IX_FK_TestItemTestValue]
@@ -381,6 +460,7 @@ ADD CONSTRAINT [FK_CriterionCriterionValues]
     REFERENCES [dbo].[Criteria]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CriterionCriterionValues'
 CREATE INDEX [IX_FK_CriterionCriterionValues]
@@ -395,6 +475,7 @@ ADD CONSTRAINT [FK_CreterionTestCriterion]
     REFERENCES [dbo].[Criteria]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CreterionTestCriterion'
 CREATE INDEX [IX_FK_CreterionTestCriterion]
@@ -409,6 +490,7 @@ ADD CONSTRAINT [FK_TestCreterionTest]
     REFERENCES [dbo].[Tests]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_TestCreterionTest'
 CREATE INDEX [IX_FK_TestCreterionTest]
@@ -423,6 +505,7 @@ ADD CONSTRAINT [FK_GroupCompany]
     REFERENCES [dbo].[Companies]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_GroupCompany'
 CREATE INDEX [IX_FK_GroupCompany]
@@ -437,6 +520,7 @@ ADD CONSTRAINT [FK_EmploeeCriterionEmploee]
     REFERENCES [dbo].[Emploees]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EmploeeCriterionEmploee'
 CREATE INDEX [IX_FK_EmploeeCriterionEmploee]
@@ -451,6 +535,7 @@ ADD CONSTRAINT [FK_EmploeeCriterionCriterion]
     REFERENCES [dbo].[Criteria]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EmploeeCriterionCriterion'
 CREATE INDEX [IX_FK_EmploeeCriterionCriterion]
@@ -465,6 +550,7 @@ ADD CONSTRAINT [FK_EmploeeGroupGroup]
     REFERENCES [dbo].[Groups]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EmploeeGroupGroup'
 CREATE INDEX [IX_FK_EmploeeGroupGroup]
@@ -479,11 +565,72 @@ ADD CONSTRAINT [FK_EmploeeGroupEmploee]
     REFERENCES [dbo].[Emploees]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_EmploeeGroupEmploee'
 CREATE INDEX [IX_FK_EmploeeGroupEmploee]
 ON [dbo].[EmploeeGroups]
     ([EmploeeId]);
+GO
+
+-- Creating foreign key on [CompanyId] in table 'Positions'
+ALTER TABLE [dbo].[Positions]
+ADD CONSTRAINT [FK_CompanyPosition]
+    FOREIGN KEY ([CompanyId])
+    REFERENCES [dbo].[Companies]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CompanyPosition'
+CREATE INDEX [IX_FK_CompanyPosition]
+ON [dbo].[Positions]
+    ([CompanyId]);
+GO
+
+-- Creating foreign key on [EmploeeId] in table 'EmploeePositions'
+ALTER TABLE [dbo].[EmploeePositions]
+ADD CONSTRAINT [FK_EmploeeEmploeePosition]
+    FOREIGN KEY ([EmploeeId])
+    REFERENCES [dbo].[Emploees]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmploeeEmploeePosition'
+CREATE INDEX [IX_FK_EmploeeEmploeePosition]
+ON [dbo].[EmploeePositions]
+    ([EmploeeId]);
+GO
+
+-- Creating foreign key on [PositionId] in table 'EmploeePositions'
+ALTER TABLE [dbo].[EmploeePositions]
+ADD CONSTRAINT [FK_EmploeePositionPosition]
+    FOREIGN KEY ([PositionId])
+    REFERENCES [dbo].[Positions]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmploeePositionPosition'
+CREATE INDEX [IX_FK_EmploeePositionPosition]
+ON [dbo].[EmploeePositions]
+    ([PositionId]);
+GO
+
+-- Creating foreign key on [UserId] in table 'Companies'
+ALTER TABLE [dbo].[Companies]
+ADD CONSTRAINT [FK_UserCompany]
+    FOREIGN KEY ([UserId])
+    REFERENCES [dbo].[Users]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UserCompany'
+CREATE INDEX [IX_FK_UserCompany]
+ON [dbo].[Companies]
+    ([UserId]);
 GO
 
 -- --------------------------------------------------

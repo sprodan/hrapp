@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Mvc;
 using HRAPP.BL.Concrete;
@@ -56,6 +57,12 @@ namespace test2.Controllers
             {
                 return View();
             }
+        }
+
+        class myView
+        {
+            internal GroupViewModel groupView;
+            internal List<EmployeeViewModel> employeeList;
         }
 
         //
