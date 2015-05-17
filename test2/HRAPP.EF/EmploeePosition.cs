@@ -12,19 +12,13 @@ namespace HRAPP.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class TestItem
+    public partial class EmploeePosition
     {
-        public TestItem()
-        {
-            this.TestValues = new HashSet<TestValue>();
-        }
-    
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int TestId { get; set; }
-        public string Sort { get; set; }
+        public int EmploeeId { get; set; }
+        public int PositionId { get; set; }
     
-        public virtual Test Tests { get; set; }
-        public virtual ICollection<TestValue> TestValues { get; set; }
+        public virtual Emploee Emploee { get; set; }
+        public virtual Position Positions { get; set; }
     }
 }

@@ -438,6 +438,25 @@
             <End Role="EmploeeGroup" EntitySet="EmploeeGroups" />
             <End Role="Emploee" EntitySet="Emploees" />
           </AssociationSet>
+          <EntitySet Name="Positions" EntityType="HRAPP.EF.Position" />
+          <AssociationSet Name="CompanyPosition" Association="HRAPP.EF.CompanyPosition">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Position" EntitySet="Positions" />
+          </AssociationSet>
+          <EntitySet Name="EmploeePositions" EntityType="HRAPP.EF.EmploeePosition" />
+          <AssociationSet Name="EmploeeEmploeePosition" Association="HRAPP.EF.EmploeeEmploeePosition">
+            <End Role="Emploee" EntitySet="Emploees" />
+            <End Role="EmploeePosition" EntitySet="EmploeePositions" />
+          </AssociationSet>
+          <AssociationSet Name="EmploeePositionPosition" Association="HRAPP.EF.EmploeePositionPosition">
+            <End Role="EmploeePosition" EntitySet="EmploeePositions" />
+            <End Role="Position" EntitySet="Positions" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="HRAPP.EF.User" />
+          <AssociationSet Name="UserCompany" Association="HRAPP.EF.UserCompany">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Criterion">
           <Key>
@@ -650,6 +669,7 @@
           <Property Name="LastName" Type="String" Nullable="false" />
           <NavigationProperty Name="EmploeeCriterion" Relationship="HRAPP.EF.EmploeeCriterionEmploee" FromRole="Emploee" ToRole="EmploeeCriterion" />
           <NavigationProperty Name="EmploeeGroup" Relationship="HRAPP.EF.EmploeeGroupEmploee" FromRole="Emploee" ToRole="EmploeeGroup" />
+          <NavigationProperty Name="EmploeePositions" Relationship="HRAPP.EF.EmploeeEmploeePosition" FromRole="Emploee" ToRole="EmploeePosition" />
         </EntityType>
         <EntityType Name="EmploeeCriterion">
           <Key>
@@ -691,6 +711,9 @@
           <Property Name="Site" Type="String" Nullable="false" />
           <Property Name="Mail" Type="String" Nullable="false" />
           <NavigationProperty Name="Group" Relationship="HRAPP.EF.GroupCompany" FromRole="Company" ToRole="Group" />
+          <NavigationProperty Name="Positions" Relationship="HRAPP.EF.CompanyPosition" FromRole="Company" ToRole="Position" />
+          <NavigationProperty Name="User" Relationship="HRAPP.EF.UserCompany" FromRole="Company" ToRole="User" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="GroupCompany">
           <End Type="HRAPP.EF.Group" Role="Group" Multiplicity="*" />
@@ -749,6 +772,83 @@
             </Principal>
             <Dependent Role="EmploeeGroup">
               <PropertyRef Name="EmploeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="HRAPP.EF.CompanyPosition" FromRole="Position" ToRole="Company" />
+          <NavigationProperty Name="EmploeePosition" Relationship="HRAPP.EF.EmploeePositionPosition" FromRole="Position" ToRole="EmploeePosition" />
+        </EntityType>
+        <Association Name="CompanyPosition">
+          <End Type="HRAPP.EF.Company" Role="Company" Multiplicity="1" />
+          <End Type="HRAPP.EF.Position" Role="Position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Position">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EmploeePosition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmploeeId" Type="Int32" Nullable="false" />
+          <Property Name="PositionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Emploee" Relationship="HRAPP.EF.EmploeeEmploeePosition" FromRole="EmploeePosition" ToRole="Emploee" />
+          <NavigationProperty Name="Positions" Relationship="HRAPP.EF.EmploeePositionPosition" FromRole="EmploeePosition" ToRole="Position" />
+        </EntityType>
+        <Association Name="EmploeeEmploeePosition">
+          <End Type="HRAPP.EF.Emploee" Role="Emploee" Multiplicity="1" />
+          <End Type="HRAPP.EF.EmploeePosition" Role="EmploeePosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emploee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmploeePosition">
+              <PropertyRef Name="EmploeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmploeePositionPosition">
+          <End Type="HRAPP.EF.EmploeePosition" Role="EmploeePosition" Multiplicity="*" />
+          <End Type="HRAPP.EF.Position" Role="Position" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmploeePosition">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <NavigationProperty Name="Companies" Relationship="HRAPP.EF.UserCompany" FromRole="User" ToRole="Company" />
+        </EntityType>
+        <Association Name="UserCompany">
+          <End Type="HRAPP.EF.User" Role="User" Multiplicity="1" />
+          <End Type="HRAPP.EF.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
