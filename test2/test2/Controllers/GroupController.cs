@@ -59,12 +59,7 @@ namespace test2.Controllers
             }
         }
 
-        class myView
-        {
-            internal GroupViewModel groupView;
-            internal List<EmployeeViewModel> employeeList;
-        }
-
+       
         //
         // GET: /Group/Edit/5
         public ActionResult Edit(int id)

@@ -5,10 +5,10 @@ using System.Text;
 
 namespace GenAlgorytm
 {
-    class FactorModel
+    public class FactorModel
     {
         public int Id { get; set; }
-        public string Value { get; set; }
+        public string Name { get; set; }
         public List<CriterionModel> Criterias { get; set; } 
     }
 }

@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using test2.Models;
+using HRAPP.BL.Concrete;
 
 namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS.Controllers
 {
@@ -78,10 +79,12 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS.Controllers
         {
             if (ModelState.IsValid)
             {
+                //UserBL.Create(model);
                 var user = new ApplicationUser() { UserName = model.UserName };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //UserBL.Create(model);
                     await SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }

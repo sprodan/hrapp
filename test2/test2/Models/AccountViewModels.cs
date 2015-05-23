@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using HRAPP.EF;
 
 namespace test2.Models
 {
@@ -59,5 +62,27 @@ namespace test2.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        #region TypeConverter
+
+        public static explicit operator RegisterViewModel(User model)
+        {
+            return  new RegisterViewModel()
+            {
+                UserName = model.Name,
+                Password = model.Password
+            };
+            
+        }
+
+        public static implicit operator User(RegisterViewModel viewModel)
+        {
+            return new User()
+            {
+                Name = viewModel.UserName,
+                Password = viewModel.Password
+            };
+        }
+        #endregion
     }
 }

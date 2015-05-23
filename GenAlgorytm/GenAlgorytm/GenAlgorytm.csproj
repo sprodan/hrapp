@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CaracteristicModel.cs" />
     <Compile Include="CriterionModel.cs" />
+    <Compile Include="Data.cs" />
     <Compile Include="FactorModel.cs" />
+    <Compile Include="Job.cs" />
     <Compile Include="PersonModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

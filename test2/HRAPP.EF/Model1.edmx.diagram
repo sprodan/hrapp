@@ -38,7 +38,7 @@
         <EntityTypeShape EntityType="HRAPP.EF.EmploeePosition" Width="1.5" PointX="5.625" PointY="3.25" />
         <AssociationConnector Association="HRAPP.EF.EmploeeEmploeePosition" />
         <AssociationConnector Association="HRAPP.EF.EmploeePositionPosition" />
-        <EntityTypeShape EntityType="HRAPP.EF.User" Width="1.5" PointX="11.375" PointY="0.5" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="HRAPP.EF.User" Width="1.5" PointX="12.375" PointY="0.5" FillColor="255, 128, 0" />
         <AssociationConnector Association="HRAPP.EF.UserCompany" />
       </Diagram>
       <Diagram DiagramId="338c1ffc9005460d8cad94bb5ece717c" Name="Criterion" />

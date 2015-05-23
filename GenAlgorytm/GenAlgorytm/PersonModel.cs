@@ -7,12 +7,9 @@ namespace GenAlgorytm
 {
     public class PersonModel
     {
-        
             public int Id { get; set; }
             public string Name { get; set; }
-            public int IdPosition { get; set; }
-            public int IdGroup { get; set; }
             public bool TestPassed { get; set; }
-        
+            public List<CaracteristicModel> CaracteristicList { get; set; }
     }
 }

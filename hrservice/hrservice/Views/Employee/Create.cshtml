@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>
+    Добавить работника
+</h2>
+<hr>
+<form class="form-horizontal">
+    <div class="container">
+        <div class="form-group">
+            <label class="col-md-2 control-label">Имя Фамилия</label>
+            <div class="col-md-10">
+                <input class="form-control" data-val="true" data-val-required="Требуется поле" type="text" placeholder="Иванов Иван">
+            </div>
+        </div>
+
+        <div class="form-group dropdown_template">
+            <div class="col-md-3">
+                <p>Позиция</p>
+            </div>
+            <div class="col-md-9">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        Не выбрано
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Не выбрано</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">.net developer</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">designer</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CEO</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">front-end developer</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="form-group dropdown_template">
+            <div class="col-md-3">
+                <p>Команда</p>
+            </div>
+            <div class="col-md-9">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+                        Без команды
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Без команды</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Команда 1</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Команда 2</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Команда 3</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Команда 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Добавить">
+            </div>
+        </div>
+
+    </div>
+
+</form>    
