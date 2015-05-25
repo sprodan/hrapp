@@ -5,365 +5,457 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       
-    <Schema Namespace="HRAPP.EF.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="HRAPPEFStoreContainer">
-    <EntitySet Name="Criteria" EntityType="HRAPP.EF.Store.Criteria" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CriterionCategories" EntityType="HRAPP.EF.Store.CriterionCategories" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CriterionValues" EntityType="HRAPP.EF.Store.CriterionValues" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CriterionTypes" EntityType="HRAPP.EF.Store.CriterionTypes1" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Tests" EntityType="HRAPP.EF.Store.Tests" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TestValues" EntityType="HRAPP.EF.Store.TestValues" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TestTypes" EntityType="HRAPP.EF.Store.TestTypes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TestItems" EntityType="HRAPP.EF.Store.TestItems" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CreterionTests" EntityType="HRAPP.EF.Store.CreterionTests" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Emploees" EntityType="HRAPP.EF.Store.Emploees" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="EmploeeCriterions" EntityType="HRAPP.EF.Store.EmploeeCriterions" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Groups" EntityType="HRAPP.EF.Store.Groups" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="EmploeeGroups" EntityType="HRAPP.EF.Store.EmploeeGroups" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Companies" EntityType="HRAPP.EF.Store.Companies" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="CriteriaCategoryCriteriaCategory" Association="HRAPP.EF.Store.CriteriaCategoryCriteriaCategory">
-      <End Role="CriteriaCategory" EntitySet="CriterionCategories" />
-      <End Role="CriteriaCategory1" EntitySet="CriterionCategories" />
-    </AssociationSet>
-    <AssociationSet Name="CriterionCriteriaCategory" Association="HRAPP.EF.Store.CriterionCriteriaCategory">
-      <End Role="Criterion" EntitySet="Criteria" />
-      <End Role="CriteriaCategory" EntitySet="CriterionCategories" />
-    </AssociationSet>
-    <AssociationSet Name="CriterionCriterionType" Association="HRAPP.EF.Store.CriterionCriterionType">
-      <End Role="Criterion" EntitySet="Criteria" />
-      <End Role="CriterionType" EntitySet="CriterionTypes" />
-    </AssociationSet>
-    <AssociationSet Name="TestTestType" Association="HRAPP.EF.Store.TestTestType">
-      <End Role="Test" EntitySet="Tests" />
-      <End Role="TestType" EntitySet="TestTypes" />
-    </AssociationSet>
-    <AssociationSet Name="TestItemTest" Association="HRAPP.EF.Store.TestItemTest">
-      <End Role="TestItem" EntitySet="TestItems" />
-      <End Role="Test" EntitySet="Tests" />
-    </AssociationSet>
-    <AssociationSet Name="TestItemTestValue" Association="HRAPP.EF.Store.TestItemTestValue">
-      <End Role="TestItem" EntitySet="TestItems" />
-      <End Role="TestValue" EntitySet="TestValues" />
-    </AssociationSet>
-    <AssociationSet Name="CriterionCriterionValues" Association="HRAPP.EF.Store.CriterionCriterionValues">
-      <End Role="Criterion" EntitySet="Criteria" />
-      <End Role="CriterionValues" EntitySet="CriterionValues" />
-    </AssociationSet>
-    <AssociationSet Name="CreterionTestCriterion" Association="HRAPP.EF.Store.CreterionTestCriterion">
-      <End Role="CreterionTest" EntitySet="CreterionTests" />
-      <End Role="Criterion" EntitySet="Criteria" />
-    </AssociationSet>
-    <AssociationSet Name="TestCreterionTest" Association="HRAPP.EF.Store.TestCreterionTest">
-      <End Role="Test" EntitySet="Tests" />
-      <End Role="CreterionTest" EntitySet="CreterionTests" />
-    </AssociationSet>
-    <AssociationSet Name="GroupCompany" Association="HRAPP.EF.Store.GroupCompany">
-      <End Role="Group" EntitySet="Groups" />
-      <End Role="Company" EntitySet="Companies" />
-    </AssociationSet>
-    <AssociationSet Name="EmploeeCriterionEmploee" Association="HRAPP.EF.Store.EmploeeCriterionEmploee">
-      <End Role="EmploeeCriterion" EntitySet="EmploeeCriterions" />
-      <End Role="Emploee" EntitySet="Emploees" />
-    </AssociationSet>
-    <AssociationSet Name="EmploeeCriterionCriterion" Association="HRAPP.EF.Store.EmploeeCriterionCriterion">
-      <End Role="EmploeeCriterion" EntitySet="EmploeeCriterions" />
-      <End Role="Criterion" EntitySet="Criteria" />
-    </AssociationSet>
-    <AssociationSet Name="EmploeeGroupGroup" Association="HRAPP.EF.Store.EmploeeGroupGroup">
-      <End Role="EmploeeGroup" EntitySet="EmploeeGroups" />
-      <End Role="Group" EntitySet="Groups" />
-    </AssociationSet>
-    <AssociationSet Name="EmploeeGroupEmploee" Association="HRAPP.EF.Store.EmploeeGroupEmploee">
-      <End Role="EmploeeGroup" EntitySet="EmploeeGroups" />
-      <End Role="Emploee" EntitySet="Emploees" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="Criteria">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CategoryId" Type="int" Nullable="false" />
-    <Property Name="TypeId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CriterionCategories">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CategoryId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CriterionValues">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CriterionId" Type="int" Nullable="false" />
-    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Sort" Type="smallint" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CriterionTypes1">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Tests">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TypeId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TestValues">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TestItemId" Type="int" Nullable="false" />
-    <Property Name="Sort" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TestTypes">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TestItems">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TestId" Type="int" Nullable="false" />
-    <Property Name="Sort" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CreterionTests">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CriterionId" Type="int" Nullable="false" />
-    <Property Name="TestId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Emploees">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="EmploeeCriterions">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="EmploeeId" Type="int" Nullable="false" />
-    <Property Name="CriterionId" Type="int" Nullable="false" />
-    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Groups">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CompanyId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="EmploeeGroups">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="EmploeeId" Type="int" Nullable="false" />
-    <Property Name="GroupId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Companies">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Site" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Mail" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <Association Name="CriteriaCategoryCriteriaCategory">
-    <End Role="CriteriaCategory" Type="HRAPP.EF.Store.CriterionCategories" Multiplicity="1" />
-    <End Role="CriteriaCategory1" Type="HRAPP.EF.Store.CriterionCategories" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CriteriaCategory">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CriteriaCategory1">
-        <PropertyRef Name="CategoryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="CriterionCriteriaCategory">
-    <End Role="Criterion" Type="HRAPP.EF.Store.Criteria" Multiplicity="*" />
-    <End Role="CriteriaCategory" Type="HRAPP.EF.Store.CriterionCategories" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="CriteriaCategory">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Criterion">
-        <PropertyRef Name="CategoryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="CriterionCriterionType">
-    <End Role="Criterion" Type="HRAPP.EF.Store.Criteria" Multiplicity="*" />
-    <End Role="CriterionType" Type="HRAPP.EF.Store.CriterionTypes1" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="CriterionType">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Criterion">
-        <PropertyRef Name="TypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="TestTestType">
-    <End Role="Test" Type="HRAPP.EF.Store.Tests" Multiplicity="*" />
-    <End Role="TestType" Type="HRAPP.EF.Store.TestTypes" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="TestType">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Test">
-        <PropertyRef Name="TypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="TestItemTest">
-    <End Role="TestItem" Type="HRAPP.EF.Store.TestItems" Multiplicity="*" />
-    <End Role="Test" Type="HRAPP.EF.Store.Tests" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Test">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TestItem">
-        <PropertyRef Name="TestId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="TestItemTestValue">
-    <End Role="TestItem" Type="HRAPP.EF.Store.TestItems" Multiplicity="1" />
-    <End Role="TestValue" Type="HRAPP.EF.Store.TestValues" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TestItem">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TestValue">
-        <PropertyRef Name="TestItemId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="CriterionCriterionValues">
-    <End Role="Criterion" Type="HRAPP.EF.Store.Criteria" Multiplicity="1" />
-    <End Role="CriterionValues" Type="HRAPP.EF.Store.CriterionValues" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Criterion">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CriterionValues">
-        <PropertyRef Name="CriterionId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="CreterionTestCriterion">
-    <End Role="CreterionTest" Type="HRAPP.EF.Store.CreterionTests" Multiplicity="*" />
-    <End Role="Criterion" Type="HRAPP.EF.Store.Criteria" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Criterion">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CreterionTest">
-        <PropertyRef Name="CriterionId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="TestCreterionTest">
-    <End Role="Test" Type="HRAPP.EF.Store.Tests" Multiplicity="1" />
-    <End Role="CreterionTest" Type="HRAPP.EF.Store.CreterionTests" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Test">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CreterionTest">
-        <PropertyRef Name="TestId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="GroupCompany">
-    <End Role="Group" Type="HRAPP.EF.Store.Groups" Multiplicity="*" />
-    <End Role="Company" Type="HRAPP.EF.Store.Companies" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Company">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Group">
-        <PropertyRef Name="CompanyId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="EmploeeCriterionEmploee">
-    <End Role="EmploeeCriterion" Type="HRAPP.EF.Store.EmploeeCriterions" Multiplicity="*" />
-    <End Role="Emploee" Type="HRAPP.EF.Store.Emploees" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Emploee">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="EmploeeCriterion">
-        <PropertyRef Name="EmploeeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="EmploeeCriterionCriterion">
-    <End Role="EmploeeCriterion" Type="HRAPP.EF.Store.EmploeeCriterions" Multiplicity="*" />
-    <End Role="Criterion" Type="HRAPP.EF.Store.Criteria" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Criterion">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="EmploeeCriterion">
-        <PropertyRef Name="CriterionId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="EmploeeGroupGroup">
-    <End Role="EmploeeGroup" Type="HRAPP.EF.Store.EmploeeGroups" Multiplicity="*" />
-    <End Role="Group" Type="HRAPP.EF.Store.Groups" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Group">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="EmploeeGroup">
-        <PropertyRef Name="GroupId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="EmploeeGroupEmploee">
-    <End Role="EmploeeGroup" Type="HRAPP.EF.Store.EmploeeGroups" Multiplicity="*" />
-    <End Role="Emploee" Type="HRAPP.EF.Store.Emploees" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Emploee">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="EmploeeGroup">
-        <PropertyRef Name="EmploeeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="HRAPP.EF.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Site" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Mail" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CreterionTests">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CriterionId" Type="int" Nullable="false" />
+          <Property Name="TestId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Criteria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="TypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CriterionCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CriterionTypes1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CriterionValues">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CriterionId" Type="int" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Sort" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmploeeCriterions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmploeeId" Type="int" Nullable="false" />
+          <Property Name="CriterionId" Type="int" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmploeeGroups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmploeeId" Type="int" Nullable="false" />
+          <Property Name="GroupId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmploeePositions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmploeeId" Type="int" Nullable="false" />
+          <Property Name="PositionId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Emploees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Positions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TestItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TestId" Type="int" Nullable="false" />
+          <Property Name="Sort" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tests">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TestTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TestValues">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TestItemId" Type="int" Nullable="false" />
+          <Property Name="Sort" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CompanyPosition">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
+          <End Role="Positions" Type="Self.Positions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Positions">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreterionTestCriterion">
+          <End Role="Criteria" Type="Self.Criteria" Multiplicity="1" />
+          <End Role="CreterionTests" Type="Self.CreterionTests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Criteria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CreterionTests">
+              <PropertyRef Name="CriterionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CriteriaCategoryCriteriaCategory">
+          <End Role="CriterionCategories" Type="Self.CriterionCategories" Multiplicity="1" />
+          <End Role="CriterionCategories1" Type="Self.CriterionCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CriterionCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CriterionCategories1">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CriterionCriteriaCategory">
+          <End Role="CriterionCategories" Type="Self.CriterionCategories" Multiplicity="1" />
+          <End Role="Criteria" Type="Self.Criteria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CriterionCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Criteria">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CriterionCriterionType">
+          <End Role="CriterionTypes1" Type="Self.CriterionTypes1" Multiplicity="1" />
+          <End Role="Criteria" Type="Self.Criteria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CriterionTypes1">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Criteria">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CriterionCriterionValues">
+          <End Role="Criteria" Type="Self.Criteria" Multiplicity="1" />
+          <End Role="CriterionValues" Type="Self.CriterionValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Criteria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CriterionValues">
+              <PropertyRef Name="CriterionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmploeeCriterionCriterion">
+          <End Role="Criteria" Type="Self.Criteria" Multiplicity="1" />
+          <End Role="EmploeeCriterions" Type="Self.EmploeeCriterions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Criteria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmploeeCriterions">
+              <PropertyRef Name="CriterionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmploeeCriterionEmploee">
+          <End Role="Emploees" Type="Self.Emploees" Multiplicity="1" />
+          <End Role="EmploeeCriterions" Type="Self.EmploeeCriterions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emploees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmploeeCriterions">
+              <PropertyRef Name="EmploeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmploeeEmploeePosition">
+          <End Role="Emploees" Type="Self.Emploees" Multiplicity="1" />
+          <End Role="EmploeePositions" Type="Self.EmploeePositions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emploees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmploeePositions">
+              <PropertyRef Name="EmploeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmploeeGroupEmploee">
+          <End Role="Emploees" Type="Self.Emploees" Multiplicity="1" />
+          <End Role="EmploeeGroups" Type="Self.EmploeeGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emploees">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmploeeGroups">
+              <PropertyRef Name="EmploeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmploeeGroupGroup">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="EmploeeGroups" Type="Self.EmploeeGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmploeeGroups">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmploeePositionPosition">
+          <End Role="Positions" Type="Self.Positions" Multiplicity="1" />
+          <End Role="EmploeePositions" Type="Self.EmploeePositions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Positions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmploeePositions">
+              <PropertyRef Name="PositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupCompany">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestCreterionTest">
+          <End Role="Tests" Type="Self.Tests" Multiplicity="1" />
+          <End Role="CreterionTests" Type="Self.CreterionTests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tests">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CreterionTests">
+              <PropertyRef Name="TestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestItemTest">
+          <End Role="Tests" Type="Self.Tests" Multiplicity="1" />
+          <End Role="TestItems" Type="Self.TestItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tests">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestItems">
+              <PropertyRef Name="TestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestItemTestValue">
+          <End Role="TestItems" Type="Self.TestItems" Multiplicity="1" />
+          <End Role="TestValues" Type="Self.TestValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestItems">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TestValues">
+              <PropertyRef Name="TestItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestTestType">
+          <End Role="TestTypes" Type="Self.TestTypes" Multiplicity="1" />
+          <End Role="Tests" Type="Self.Tests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tests">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompany">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Companies" Type="Self.Companies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Companies">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HRAPPEFStoreContainer">
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CreterionTests" EntityType="Self.CreterionTests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Criteria" EntityType="Self.Criteria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CriterionCategories" EntityType="Self.CriterionCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CriterionTypes1" EntityType="Self.CriterionTypes1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CriterionValues" EntityType="Self.CriterionValues" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmploeeCriterions" EntityType="Self.EmploeeCriterions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmploeeGroups" EntityType="Self.EmploeeGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmploeePositions" EntityType="Self.EmploeePositions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emploees" EntityType="Self.Emploees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Positions" EntityType="Self.Positions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestItems" EntityType="Self.TestItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tests" EntityType="Self.Tests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestTypes" EntityType="Self.TestTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestValues" EntityType="Self.TestValues" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CompanyPosition" Association="Self.FK_CompanyPosition">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Positions" EntitySet="Positions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreterionTestCriterion" Association="Self.FK_CreterionTestCriterion">
+            <End Role="Criteria" EntitySet="Criteria" />
+            <End Role="CreterionTests" EntitySet="CreterionTests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CriteriaCategoryCriteriaCategory" Association="Self.FK_CriteriaCategoryCriteriaCategory">
+            <End Role="CriterionCategories" EntitySet="CriterionCategories" />
+            <End Role="CriterionCategories1" EntitySet="CriterionCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CriterionCriteriaCategory" Association="Self.FK_CriterionCriteriaCategory">
+            <End Role="CriterionCategories" EntitySet="CriterionCategories" />
+            <End Role="Criteria" EntitySet="Criteria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CriterionCriterionType" Association="Self.FK_CriterionCriterionType">
+            <End Role="CriterionTypes1" EntitySet="CriterionTypes1" />
+            <End Role="Criteria" EntitySet="Criteria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CriterionCriterionValues" Association="Self.FK_CriterionCriterionValues">
+            <End Role="Criteria" EntitySet="Criteria" />
+            <End Role="CriterionValues" EntitySet="CriterionValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmploeeCriterionCriterion" Association="Self.FK_EmploeeCriterionCriterion">
+            <End Role="Criteria" EntitySet="Criteria" />
+            <End Role="EmploeeCriterions" EntitySet="EmploeeCriterions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmploeeCriterionEmploee" Association="Self.FK_EmploeeCriterionEmploee">
+            <End Role="Emploees" EntitySet="Emploees" />
+            <End Role="EmploeeCriterions" EntitySet="EmploeeCriterions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmploeeEmploeePosition" Association="Self.FK_EmploeeEmploeePosition">
+            <End Role="Emploees" EntitySet="Emploees" />
+            <End Role="EmploeePositions" EntitySet="EmploeePositions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmploeeGroupEmploee" Association="Self.FK_EmploeeGroupEmploee">
+            <End Role="Emploees" EntitySet="Emploees" />
+            <End Role="EmploeeGroups" EntitySet="EmploeeGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmploeeGroupGroup" Association="Self.FK_EmploeeGroupGroup">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="EmploeeGroups" EntitySet="EmploeeGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmploeePositionPosition" Association="Self.FK_EmploeePositionPosition">
+            <End Role="Positions" EntitySet="Positions" />
+            <End Role="EmploeePositions" EntitySet="EmploeePositions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupCompany" Association="Self.FK_GroupCompany">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestCreterionTest" Association="Self.FK_TestCreterionTest">
+            <End Role="Tests" EntitySet="Tests" />
+            <End Role="CreterionTests" EntitySet="CreterionTests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestItemTest" Association="Self.FK_TestItemTest">
+            <End Role="Tests" EntitySet="Tests" />
+            <End Role="TestItems" EntitySet="TestItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestItemTestValue" Association="Self.FK_TestItemTestValue">
+            <End Role="TestItems" EntitySet="TestItems" />
+            <End Role="TestValues" EntitySet="TestValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestTestType" Association="Self.FK_TestTestType">
+            <End Role="TestTypes" EntitySet="TestTypes" />
+            <End Role="Tests" EntitySet="Tests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompany" Association="Self.FK_UserCompany">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Companies" EntitySet="Companies" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HRAPP.EF" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
@@ -463,7 +555,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
           <Property Name="TypeId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CriteriaCategories" Relationship="HRAPP.EF.CriterionCriteriaCategory" FromRole="Criterion" ToRole="CriteriaCategory" />
@@ -477,7 +569,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CriteriaCategories" Relationship="HRAPP.EF.CriteriaCategoryCriteriaCategory" FromRole="CriteriaCategory" ToRole="CriteriaCategory1" />
           <NavigationProperty Name="CriteriaCategory1" Relationship="HRAPP.EF.CriteriaCategoryCriteriaCategory" FromRole="CriteriaCategory1" ToRole="CriteriaCategory" />
@@ -489,7 +581,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="CriterionId" Type="Int32" Nullable="false" />
-          <Property Name="Value" Type="String" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Sort" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Criterion" Relationship="HRAPP.EF.CriterionCriterionValues" FromRole="CriterionValues" ToRole="Criterion" />
         </EntityType>
@@ -498,7 +590,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Criterion" Relationship="HRAPP.EF.CriterionCriterionType" FromRole="CriterionType" ToRole="Criterion" />
         </EntityType>
         <Association Name="CriteriaCategoryCriteriaCategory">
@@ -542,8 +634,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="TypeId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TestTypes" Relationship="HRAPP.EF.TestTestType" FromRole="Test" ToRole="TestType" />
           <NavigationProperty Name="TestItem" Relationship="HRAPP.EF.TestItemTest" FromRole="Test" ToRole="TestItem" />
@@ -554,9 +646,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="Value" Type="String" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="TestItemId" Type="Int32" Nullable="false" />
-          <Property Name="Sort" Type="String" Nullable="false" />
+          <Property Name="Sort" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="TestItem" Relationship="HRAPP.EF.TestItemTestValue" FromRole="TestValue" ToRole="TestItem" />
         </EntityType>
         <EntityType Name="TestType">
@@ -564,7 +656,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Test" Relationship="HRAPP.EF.TestTestType" FromRole="TestType" ToRole="Test" />
         </EntityType>
         <EntityType Name="TestItem">
@@ -572,9 +664,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="TestId" Type="Int32" Nullable="false" />
-          <Property Name="Sort" Type="String" Nullable="false" />
+          <Property Name="Sort" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Tests" Relationship="HRAPP.EF.TestItemTest" FromRole="TestItem" ToRole="Test" />
           <NavigationProperty Name="TestValues" Relationship="HRAPP.EF.TestItemTestValue" FromRole="TestItem" ToRole="TestValue" />
         </EntityType>
@@ -665,8 +757,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="EmploeeCriterion" Relationship="HRAPP.EF.EmploeeCriterionEmploee" FromRole="Emploee" ToRole="EmploeeCriterion" />
           <NavigationProperty Name="EmploeeGroup" Relationship="HRAPP.EF.EmploeeGroupEmploee" FromRole="Emploee" ToRole="EmploeeGroup" />
           <NavigationProperty Name="EmploeePositions" Relationship="HRAPP.EF.EmploeeEmploeePosition" FromRole="Emploee" ToRole="EmploeePosition" />
@@ -678,7 +770,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EmploeeId" Type="Int32" Nullable="false" />
           <Property Name="CriterionId" Type="Int32" Nullable="false" />
-          <Property Name="Value" Type="String" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Emploees" Relationship="HRAPP.EF.EmploeeCriterionEmploee" FromRole="EmploeeCriterion" ToRole="Emploee" />
           <NavigationProperty Name="Criteria" Relationship="HRAPP.EF.EmploeeCriterionCriterion" FromRole="EmploeeCriterion" ToRole="Criterion" />
         </EntityType>
@@ -687,7 +779,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="CompanyId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Companies" Relationship="HRAPP.EF.GroupCompany" FromRole="Group" ToRole="Company" />
           <NavigationProperty Name="EmploeeGroup" Relationship="HRAPP.EF.EmploeeGroupGroup" FromRole="Group" ToRole="EmploeeGroup" />
@@ -707,9 +799,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Site" Type="String" Nullable="false" />
-          <Property Name="Mail" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Site" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Mail" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Group" Relationship="HRAPP.EF.GroupCompany" FromRole="Company" ToRole="Group" />
           <NavigationProperty Name="Positions" Relationship="HRAPP.EF.CompanyPosition" FromRole="Company" ToRole="Position" />
           <NavigationProperty Name="User" Relationship="HRAPP.EF.UserCompany" FromRole="Company" ToRole="User" />
@@ -780,7 +872,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="CompanyId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Company" Relationship="HRAPP.EF.CompanyPosition" FromRole="Position" ToRole="Company" />
           <NavigationProperty Name="EmploeePosition" Relationship="HRAPP.EF.EmploeePositionPosition" FromRole="Position" ToRole="EmploeePosition" />
@@ -836,8 +928,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Password" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Companies" Relationship="HRAPP.EF.UserCompany" FromRole="User" ToRole="Company" />
         </EntityType>
         <Association Name="UserCompany">
@@ -890,7 +982,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="CriterionTypes1">
       <EntityTypeMapping TypeName="IsTypeOf(HRAPP.EF.CriterionType)">
-        <MappingFragment StoreEntitySet="CriterionTypes">
+        <MappingFragment StoreEntitySet="CriterionTypes1">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
@@ -987,6 +1079,34 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Site" ColumnName="Site" />
           <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Positions">
+      <EntityTypeMapping TypeName="IsTypeOf(HRAPP.EF.Position)">
+        <MappingFragment StoreEntitySet="Positions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmploeePositions">
+      <EntityTypeMapping TypeName="IsTypeOf(HRAPP.EF.EmploeePosition)">
+        <MappingFragment StoreEntitySet="EmploeePositions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmploeeId" ColumnName="EmploeeId" />
+          <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(HRAPP.EF.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1006,6 +1126,7 @@
         <edmx:DesignerProperty Name="EnablePluralization" Value="True" />
         <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />
         <edmx:DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </edmx:DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

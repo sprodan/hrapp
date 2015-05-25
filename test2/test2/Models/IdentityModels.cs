@@ -10,7 +10,7 @@ namespace test2.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection")
+            : base("Model1Container")
         {
         }
     }

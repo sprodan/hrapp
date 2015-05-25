@@ -13,5 +13,10 @@ namespace test2.Controllers
         {
             return View();
         }
+
+        public ActionResult Employee()
+        {
+            return View();
+        }
     }
 }

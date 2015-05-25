@@ -51,7 +51,7 @@ namespace test2.Models
                     new EmployeeViewModel {Name = "Евгений Евгеньевич", IdGroup = 1, IdPosition = 3, TestPassed = true},
                     new EmployeeViewModel {Name = "Светлана Сватовна", IdGroup = 1, IdPosition = 4, TestPassed = true},
                     new EmployeeViewModel {Name = "Денис Денисов", IdGroup = 1, IdPosition = 1},
-                    new EmployeeViewModel {Name = "Анна Ановна", IdGroup = 3, IdPosition = 2},
+                    new EmployeeViewModel {Name = "Анна Ановна", IdGroup = 1, IdPosition = 2},
                 };
             }
         }

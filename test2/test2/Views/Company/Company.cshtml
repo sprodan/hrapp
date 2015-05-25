@@ -108,7 +108,7 @@
         <div class="col-md-3">
             @if (employee.TestPassed)
             {
-                <div class="thumbnail" style="background: rgb(212, 255, 146)">
+                <a href="../Employee/Employee" class="thumbnail" style="background: rgb(212, 255, 146)">
                     <div class=" col-md-12 user-photo">
                         <span class="glyphicon glyphicon-user recicon" aria-hidden="true"></span>
                     </div>
@@ -119,11 +119,11 @@
                         </p>
                         <p><b>Команда:</b> @Model.Groups.First(g => g.Id == employee.IdGroup).Name</p>
                     </div>
-                </div>
+                </a>
             }
             else
             {
-                <div class="thumbnail">
+                <a href="../Employee/Employee" class="thumbnail">
                     <div class=" col-md-12 user-photo">
                         <span class="glyphicon glyphicon-user recicon" aria-hidden="true"></span>
                     </div>
@@ -134,7 +134,7 @@
                         </p>
                         <p><b>Команда:</b> @Model.Groups.First(g => g.Id == employee.IdGroup).Name</p>
                     </div>
-                </div>
+                </a>
             }
         </div>
     }

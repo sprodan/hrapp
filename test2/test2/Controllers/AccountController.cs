@@ -79,12 +79,12 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS.Controllers
         {
             if (ModelState.IsValid)
             {
-                //UserBL.Create(model);
+                
                 var user = new ApplicationUser() { UserName = model.UserName };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    //UserBL.Create(model);
+                    UserBL.Create(model);
                     await SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
@@ -92,6 +92,7 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS.Controllers
                 {
                     AddErrors(result);
                 }
+
             }
 
             // If we got this far, something failed, redisplay form
