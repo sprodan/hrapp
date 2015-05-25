@@ -42,5 +42,6 @@ namespace HRAPP.EF
         public virtual DbSet<Position> Positions { get; set; }
         public virtual DbSet<EmploeePosition> EmploeePositions { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        
     }
 }

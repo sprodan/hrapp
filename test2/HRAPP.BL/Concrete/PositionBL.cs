@@ -7,7 +7,7 @@ using HRAPP.EF;
 
 namespace HRAPP.BL.Concrete
 {
-    class PositionBL
+    public class PositionBL
     {
         public static int? Create(Position position)
         {
@@ -19,6 +19,11 @@ namespace HRAPP.BL.Concrete
         {
 
             return PositionDAL.Instance.Read(Id);
+        }
+
+        public static IEnumerable<Position> ReadByCompany(int companyId)
+        {
+            return PositionDAL.Instance.ReadByCompany(companyId);
         }
 
         public static void Update(Position group)

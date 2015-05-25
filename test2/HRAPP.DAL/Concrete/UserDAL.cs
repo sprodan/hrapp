@@ -19,10 +19,19 @@ namespace HRAPP.DAL.Concrete
 
         public void Add(User user)
         {
-            using (var dbEntities = new Model1Container())
+            try
             {
-                dbEntities.Users.Add(user);
-                dbEntities.SaveChanges();
+                using (var dbEntities = new Model1Container())
+                {
+                    dbEntities.Users.Add(user);
+                    dbEntities.SaveChanges();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 

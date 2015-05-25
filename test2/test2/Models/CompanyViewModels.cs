@@ -21,41 +21,18 @@ namespace test2.Models
         [Display(Name = "Почта компании")]
         public string Mail { get; set; }
 
+        public int UserId
+        {
+            get;
+            set;
+        }
+
+
         public ICollection<GroupViewModel> Groups { get; set; }
 
-        public IEnumerable<PositionViewModel> Positions
-        {
-            get
-            {
-                return new List<PositionViewModel>
-                {
-                    new PositionViewModel {Name = ".net Dev", UsersCount = 10, Id = 1},
-                    new PositionViewModel {Name = "php Dev", UsersCount = 12, Id = 2},
-                    new PositionViewModel {Name = "front-end dev", UsersCount = 30, Id = 3},
-                    new PositionViewModel {Name = "designer", UsersCount = 5, Id = 4},
+        public ICollection<PositionViewModel> Positions { get; set; }
 
-                };
-            }
-        }
-
-
-
-        public IEnumerable<EmployeeViewModel> Employees
-        {
-            get
-            {
-                return new List<EmployeeViewModel>
-                {
-                    new EmployeeViewModel {Name = "Иванов Иван", IdGroup = 1, IdPosition = 1, TestPassed = true},
-                    new EmployeeViewModel {Name = "Николаев Николай", IdGroup = 1, IdPosition = 2},
-                    new EmployeeViewModel {Name = "Евгений Евгеньевич", IdGroup = 1, IdPosition = 3, TestPassed = true},
-                    new EmployeeViewModel {Name = "Светлана Сватовна", IdGroup = 1, IdPosition = 4, TestPassed = true},
-                    new EmployeeViewModel {Name = "Денис Денисов", IdGroup = 1, IdPosition = 1},
-                    new EmployeeViewModel {Name = "Анна Ановна", IdGroup = 1, IdPosition = 2},
-                };
-            }
-        }
-
+        public ICollection<EmployeeViewModel> Employees { get; set; }
 
         #region TypeConverter
 
@@ -64,14 +41,36 @@ namespace test2.Models
             CompanyViewModel _view = new CompanyViewModel()
             {
                 Groups = new Collection<GroupViewModel>(),
+                Positions= new Collection<PositionViewModel>(),
+                Employees=new Collection<EmployeeViewModel>(),
                 Mail = model.Mail,
                 Id = model.Id,
                 Name = model.Name,
-                Address = model.Site
+                Address = model.Site,
+                UserId = 2
             };
-            foreach (var _group in model.Group)
+            if (model.Group != null)
             {
-                _view.Groups.Add((GroupViewModel)_group);
+                foreach (var _group in model.Group)
+                {
+                    _view.Groups.Add((GroupViewModel)_group);
+                }
+            }
+
+            if (model.Positions != null)
+            {
+                foreach (var _position in model.Positions)
+                {
+                    _view.Positions.Add((PositionViewModel)_position);
+                }
+            }
+
+            if (model.Employee != null)
+            {
+                foreach (var _employee in model.Employee)
+                {
+                    _view.Employees.Add((EmployeeViewModel)_employee);
+                }
             }
 
             return _view;
@@ -82,15 +81,37 @@ namespace test2.Models
             Company _company = new Company()
             {
                 Group = new List<Group>(),
+                Positions= new List<Position>(),
+                Employee = new List<Emploee>(),
                 Mail = viewModel.Mail,
                 Id = viewModel.Id,
                 Name = viewModel.Name,
-                Site = viewModel.Address
+                Site = viewModel.Address,
+                UserId = 2
             };
-            foreach (var _group in viewModel.Groups)
+            if (viewModel.Groups != null)
             {
-                _company.Group.Add(_group);
+                foreach (var _group in viewModel.Groups)
+                {
+                    _company.Group.Add(_group);
+                }
             }
+            if (viewModel.Positions != null)
+            {
+                foreach (var _position in viewModel.Positions)
+                {
+                    _company.Positions.Add(_position);
+                }
+            }
+
+            if (viewModel.Employees != null)
+            {
+                foreach (var _employees in viewModel.Employees)
+                {
+                    _company.Employee.Add(_employees);
+                }
+            }
+
             return _company;
         }
         #endregion
