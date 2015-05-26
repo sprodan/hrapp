@@ -21,6 +21,11 @@ namespace HRAPP.BL.Concrete
             return UserDAL.Instance.Read(Id);
         }
 
+        public static List<User> ReadAll()
+        {
+            return UserDAL.Instance.ReadAll();
+        }
+
         public static void Update(User group)
         {
             UserDAL.Instance.Update(group);

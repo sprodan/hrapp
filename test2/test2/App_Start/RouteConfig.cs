@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS
+namespace test2
 {
     public class RouteConfig
     {
@@ -14,11 +14,7 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
-            routes.MapRoute(
-                name: "Rectuitment",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Recruitment", action = "Recruitment", id = UrlParameter.Optional }
-            );
+            
         }
     }
 }

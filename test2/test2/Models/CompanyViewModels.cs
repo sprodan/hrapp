@@ -21,23 +21,19 @@ namespace test2.Models
         [Display(Name = "Почта компании")]
         public string Mail { get; set; }
 
-        public int UserId
-        {
-            get;
-            set;
-        }
-
+        public int UserId { get; set; }
 
         public ICollection<GroupViewModel> Groups { get; set; }
 
         public ICollection<PositionViewModel> Positions { get; set; }
-
+        
         public ICollection<EmployeeViewModel> Employees { get; set; }
 
         #region TypeConverter
 
         public static explicit operator CompanyViewModel(Company model)
         {
+            if (model == null) return new CompanyViewModel { UserId = -1};
             CompanyViewModel _view = new CompanyViewModel()
             {
                 Groups = new Collection<GroupViewModel>(),
@@ -47,7 +43,7 @@ namespace test2.Models
                 Id = model.Id,
                 Name = model.Name,
                 Address = model.Site,
-                UserId = 2
+                UserId = model.UserId
             };
             if (model.Group != null)
             {
@@ -78,6 +74,7 @@ namespace test2.Models
 
         public static implicit operator Company(CompanyViewModel viewModel)
         {
+            if (viewModel == null) return new Company { UserId = -1 };
             Company _company = new Company()
             {
                 Group = new List<Group>(),
@@ -87,7 +84,7 @@ namespace test2.Models
                 Id = viewModel.Id,
                 Name = viewModel.Name,
                 Site = viewModel.Address,
-                UserId = 2
+                UserId = viewModel.UserId
             };
             if (viewModel.Groups != null)
             {

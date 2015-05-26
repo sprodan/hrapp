@@ -2,30 +2,30 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+@model test2.Models.TestViewModel
 <h1>Тест</h1>
-<div class="col-md-12">
-    <label> 123 </label>
-    <input type="radio"/>
-    <input type="radio"/>
-    <label> 456 </label>
-</div>
-<div class="col-md-12">
-    <label> 123 </label>
-    <input type="radio"/>
-    <input type="radio"/>
-    <label> 456 </label>
-</div>
-<div class="col-md-12">
-    <label> 123 </label>
-    <input type="radio"/>
-    <input type="radio"/>
-    <label> 456 </label>
-</div>
-<div class="col-md-12">
-    <label> 123 </label>
-    <input type="radio" />
-    <input type="radio" />
-    <label> 456 </label>
-</div>
 
+<h2> Выберите из двух вариантов тот, к которому больше склоняетесь. Не нужно думать над ответом, выберете первое, что пришло в голову.</h2>
+
+<hr/>
+
+@foreach (var q in Model.Questions)
+{
+    <div class="col-md-12 col-xs-12">
+        <div class="col-md-5 col-xs-5" style="text-align:right">
+            <label> @q.LeftVariant </label>
+        </div>
+        <div class="col-md-1 col-xs-1" style="text-align:right">
+            <input type="radio" />
+        </div>
+        <div class="col-md-1 col-xs-1">
+            <input type="radio" />
+        </div>
+        <div class="col-md-5 col-xs-5">
+            <label> @q.RightVariant </label>
+        </div>
+
+    </div>
+
+}
+<hr/>

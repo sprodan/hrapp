@@ -12,7 +12,9 @@ namespace test2.Controllers
     {
         public ActionResult Company()
         {
-            return View((CompanyViewModel)CompanyBL.Read(1));
+            
+            
+            return View((CompanyViewModel)CompanyBL.Read(Convert.ToInt32(this.Session["UserId"])));
         }
 
         [HttpGet]

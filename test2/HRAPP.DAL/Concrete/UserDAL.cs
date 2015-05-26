@@ -2,6 +2,7 @@
 using System.Linq;
 using HRAPP.EF;
 using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace HRAPP.DAL.Concrete
 {
@@ -33,6 +34,15 @@ namespace HRAPP.DAL.Concrete
 
                 throw;
             }
+        }
+
+        public List<User> ReadAll()
+        {
+            var dbEntities = new Model1Container();
+
+            var users = dbEntities.Users.ToList();
+
+            return users;
         }
 
         public User Read(int id)

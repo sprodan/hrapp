@@ -30,7 +30,15 @@ namespace HRAPP.DAL.Concrete
         {
             var dbEntities = new Model1Container();
 
-             var company = dbEntities.Companies.Where(p => p.Id == id).ToList().First();
+            var company = new Company();
+            try
+            {
+                dbEntities.Companies.Where(p => p.UserId == id).ToList().First();
+            }
+            catch
+            {
+                return null;
+            }
 
             return company;
 
