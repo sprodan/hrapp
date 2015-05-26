@@ -11,7 +11,8 @@ namespace test2.Controllers
         // GET: Test
         public ActionResult Test()
         {
-            return View();
+            var model = new Models.TestViewModel();
+            return View(model);
         }
     }
 }

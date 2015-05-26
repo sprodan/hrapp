@@ -21,6 +21,8 @@ namespace test2.Models
         [Display(Name = "Почта компании")]
         public string Mail { get; set; }
 
+        public int UserId { get; set; }
+
         public ICollection<GroupViewModel> Groups { get; set; }
 
         public IEnumerable<PositionViewModel> Positions
@@ -61,13 +63,15 @@ namespace test2.Models
 
         public static explicit operator CompanyViewModel(Company model)
         {
+            if (model == null) return new CompanyViewModel { UserId = -1};
             CompanyViewModel _view = new CompanyViewModel()
             {
                 Groups = new Collection<GroupViewModel>(),
                 Mail = model.Mail,
                 Id = model.Id,
                 Name = model.Name,
-                Address = model.Site
+                Address = model.Site,
+                UserId = model.UserId
             };
             foreach (var _group in model.Group)
             {
@@ -79,13 +83,15 @@ namespace test2.Models
 
         public static implicit operator Company(CompanyViewModel viewModel)
         {
+            if (viewModel == null) return new Company { UserId = -1 };
             Company _company = new Company()
             {
                 Group = new List<Group>(),
                 Mail = viewModel.Mail,
                 Id = viewModel.Id,
                 Name = viewModel.Name,
-                Site = viewModel.Address
+                Site = viewModel.Address,
+                UserId = viewModel.UserId
             };
             foreach (var _group in viewModel.Groups)
             {

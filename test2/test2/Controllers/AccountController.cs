@@ -11,7 +11,7 @@ using Microsoft.Owin.Security;
 using test2.Models;
 using HRAPP.BL.Concrete;
 
-namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS.Controllers
+namespace test2
 {
     [Authorize]
     public class AccountController : Controller
@@ -49,6 +49,14 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS.Controllers
                 var user = await UserManager.FindAsync(model.UserName, model.Password);
                 if (user != null)
                 {
+                    var accounts = UserBL.ReadAll();
+
+                    int id = -1;
+                    id = accounts.FirstOrDefault(a => a.Name == model.UserName).Id;
+
+                    if(Session["UserId"] == null) this.Session.Add("UserId", -1);
+                    this.Session["UserId"] = id;
+
                     await SignInAsync(user, model.RememberMe);
                     return RedirectToLocal(returnUrl);
                 }
@@ -294,6 +302,8 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
+            if (Session["UserId"] == null) this.Session.Add("UserId", -1);
+            this.Session["UserId"] = -1;
             return RedirectToAction("Index", "Home");
         }
 
@@ -340,6 +350,13 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS.Controllers
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
             AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
+
+            var accounts = UserBL.ReadAll();
+            int id = -1;
+            id = accounts.FirstOrDefault(a => a.Name == user.UserName).Id;
+
+            if (Session["UserId"] == null) this.Session.Add("UserId", -1);
+            this.Session["UserId"] = id;
         }
 
         private void AddErrors(IdentityResult result)
