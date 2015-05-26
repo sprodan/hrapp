@@ -28,6 +28,7 @@ namespace HRAPP.EF
     
         public virtual ICollection<Group> Group { get; set; }
         public virtual ICollection<Position> Positions { get; set; }
+        public virtual ICollection<Emploee> Employee { get; set; }
         public virtual User User { get; set; }
     }
 }
