@@ -1,12 +1,15 @@
-﻿@{
+﻿@using Microsoft.AspNet.Identity
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @model test2.Models.CompanyViewModel
 
 <h2>Компания</h2>
-@if (Model.UserId != -1)
+@if (Request.IsAuthenticated)
 {
+    
     <h2>
         @Html.LabelFor(model => model.UserId)
     </h2>
@@ -77,7 +80,7 @@
         </div>
         <hr />
     </div>
-    if (Model.UserId != -1) {
+    
     <br />
     <h4>Команды</h4>
     <br />
@@ -105,8 +108,8 @@
             </div>
         </div>
     </div>
-    }
-    if (Model.UserId != -1) {
+    
+    
     <br />
     <h4>Люди</h4>
     <br />
@@ -126,7 +129,7 @@
                             <p>
                                 <i>@Model.Positions.First(p => p.Id == employee.IdPosition).Name</i>
                             </p>
-                            <p><b>Команда:</b> @Model.Groups.First(g => g.Id == employee.IdGroup).Name</p>
+                            <p><b>Команда:</b> @Model.Groups.FirstOrDefault(g => g.Id == employee.IdGroup).Name</p>
                         </div>
                     </a>
                 }
@@ -156,7 +159,7 @@
         </div>
     </div>
     </div>
-}
+
 }
 else
 {

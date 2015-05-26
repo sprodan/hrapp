@@ -107,94 +107,89 @@ namespace test2.Models
                     },
                     new QuestionViewModel
                     {
-                        LeftVariant = "Решительный",
-                        RightVariant = "Преданный"
+                        LeftVariant = "Фактический",
+                        RightVariant = "Теоретический"
 
                     },
                     new QuestionViewModel
                     {
-                        LeftVariant = "Решительный",
-                        RightVariant = "Преданный"
+                        LeftVariant = "Приминение на практике",
+                        RightVariant = "Поиск скрытого смысла"
 
                     },
                     new QuestionViewModel
                     {
-                        LeftVariant = "Решительный",
-                        RightVariant = "Преданный"
+                        LeftVariant = "Опыт",
+                        RightVariant = "Теории"
 
                     },
                     new QuestionViewModel
                     {
-                        LeftVariant = "Решительный",
-                        RightVariant = "Преданный"
+                        LeftVariant = "Рассудительный",
+                        RightVariant = "Удивительный"
 
                     },
                     new QuestionViewModel
                     {
-                        LeftVariant = "Решительный",
-                        RightVariant = "Преданный"
+                        LeftVariant = "Практик",
+                        RightVariant = "Фантазер"
 
                     },
                     new QuestionViewModel
                     {
-                        LeftVariant = "Решительный",
-                        RightVariant = "Преданный"
+                        LeftVariant = "Реалист",
+                        RightVariant = "Мечтатель"
 
                     },
                     new QuestionViewModel
                     {
-                        LeftVariant = "Решительный",
-                        RightVariant = "Преданный"
+                        LeftVariant = "Реальность",
+                        RightVariant = "Перспективность"
 
                     },
                     new QuestionViewModel
                     {
-                        LeftVariant = "Решительный",
-                        RightVariant = "Преданный"
+                        LeftVariant = "Шумный",
+                        RightVariant = "Тихий"
 
                     },
                     new QuestionViewModel
                     {
-                        LeftVariant = "Решительный",
-                        RightVariant = "Преданный"
+                        LeftVariant = "Оживительный",
+                        RightVariant = "Спокойный"
 
                     },
                     new QuestionViewModel
                     {
-                        LeftVariant = "Решительный",
-                        RightVariant = "Преданный"
+                        LeftVariant = "Общительность",
+                        RightVariant = "Сосредоточенность"
 
                     },
                     new QuestionViewModel
                     {
-                        LeftVariant = "Решительный",
-                        RightVariant = "Преданный"
+                        LeftVariant = "Расходование энергии",
+                        RightVariant = "Сохранение энергии"
 
                     },
                     new QuestionViewModel
                     {
-                        LeftVariant = "Решительный",
-                        RightVariant = "Преданный"
+                        LeftVariant = "Ориентированный во внешний мир",
+                        RightVariant = "Ориентированный внутрь себя"
 
                     },
                     new QuestionViewModel
                     {
-                        LeftVariant = "Решительный",
-                        RightVariant = "Преданный"
+                        LeftVariant = "Высказатхься вслух",
+                        RightVariant = "Пеёреживать в себе"
 
                     },
                     new QuestionViewModel
                     {
-                        LeftVariant = "Решительный",
-                        RightVariant = "Преданный"
+                        LeftVariant = "Отважный",
+                        RightVariant = "Хладнокровный"
 
                     },
-                    new QuestionViewModel
-                    {
-                        LeftVariant = "Решительный",
-                        RightVariant = "Преданный"
-
-                    },
+                    
                 };
             }
         } 

@@ -33,7 +33,7 @@ namespace HRAPP.DAL.Concrete
             var company = new Company();
             try
             {
-                dbEntities.Companies.Where(p => p.UserId == id).ToList().First();
+                company = dbEntities.Companies.First(p => p.UserId == id);
             }
             catch
             {

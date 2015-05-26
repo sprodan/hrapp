@@ -48,12 +48,12 @@ namespace test2.Models
             {
                 return new List<EmployeeViewModel>
                 {
-                    new EmployeeViewModel {Name = "Иванов Иван", IdGroup = 1, IdPosition = 1, TestPassed = true},
-                    new EmployeeViewModel {Name = "Николаев Николай", IdGroup = 1, IdPosition = 2},
-                    new EmployeeViewModel {Name = "Евгений Евгеньевич", IdGroup = 1, IdPosition = 3, TestPassed = true},
-                    new EmployeeViewModel {Name = "Светлана Сватовна", IdGroup = 1, IdPosition = 4, TestPassed = true},
-                    new EmployeeViewModel {Name = "Денис Денисов", IdGroup = 1, IdPosition = 1},
-                    new EmployeeViewModel {Name = "Анна Ановна", IdGroup = 1, IdPosition = 2},
+                    new EmployeeViewModel {Name = "Иванов Иван", IdGroup = 6, IdPosition = 1, TestPassed = true},
+                    new EmployeeViewModel {Name = "Николаев Николай", IdGroup = 5, IdPosition = 2},
+                    new EmployeeViewModel {Name = "Евгений Евгеньевич", IdGroup = 6, IdPosition = 3, TestPassed = true},
+                    new EmployeeViewModel {Name = "Светлана Сватовна", IdGroup = 5, IdPosition = 4, TestPassed = true},
+                    new EmployeeViewModel {Name = "Денис Денисов", IdGroup = 6, IdPosition = 1},
+                    new EmployeeViewModel {Name = "Анна Ановна", IdGroup = 5, IdPosition = 2},
                 };
             }
         }

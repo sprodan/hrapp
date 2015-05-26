@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using HRAPP.BL.Concrete;
 using test2.Models;
+using Microsoft.AspNet.Identity;
 
 namespace test2.Controllers
 {
@@ -12,9 +13,9 @@ namespace test2.Controllers
     {
         public ActionResult Company()
         {
-            
-            
-            return View((CompanyViewModel)CompanyBL.Read(Convert.ToInt32(this.Session["UserId"])));
+
+            int id = UserBL.ReadAll().First(u => u.Name == User.Identity.GetUserName()).Id;
+            return View((CompanyViewModel)CompanyBL.Read(Convert.ToInt32(id)));
         }
 
         [HttpGet]
