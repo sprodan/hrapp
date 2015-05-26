@@ -46,5 +46,13 @@ namespace HRAPP.DAL.Concrete
             }
         }
 
+        public IEnumerable<Position> ReadByCompany(int idCompany)
+        {
+            var dbEntities = new Model1Container();
+
+            var positions = dbEntities.Positions.Where(p => p.CompanyId == idCompany).ToList();
+
+            return positions;
+        }
     }
 }
