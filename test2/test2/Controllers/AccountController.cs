@@ -51,12 +51,6 @@ namespace test2
                 {
                     var accounts = UserBL.ReadAll();
 
-                    int id = -1;
-                    id = accounts.FirstOrDefault(a => a.Name == model.UserName).Id;
-
-                    if(Session["UserId"] == null) this.Session.Add("UserId", -1);
-                    this.Session["UserId"] = id;
-
                     await SignInAsync(user, model.RememberMe);
                     return RedirectToLocal(returnUrl);
                 }

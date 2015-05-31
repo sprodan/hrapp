@@ -14,14 +14,9 @@
         @Html.LabelFor(model => model.UserId)
     </h2>
     <hr>
-
-    
-        using (Html.BeginForm("Edit", "Company", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
-@using (Html.BeginForm("Edit", "Company", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+    using (Html.BeginForm("Edit", "Company", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
         {
         @Html.HiddenFor(model => model.Id)
-
-    @*@Html.AntiForgeryToken()*@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
@@ -47,8 +42,6 @@
         </div>
         }
     
-
-
     <hr />
     <br />
     <h4>Позиции в компании</h4>
@@ -68,7 +61,7 @@
                     
                     </a>
 
-                </div>
+                 </div>
 
             }
         
@@ -82,7 +75,6 @@
         </div>
         <hr />
     </div>
-    
 
     <br />
     <h4>Команды</h4>
@@ -111,8 +103,6 @@
             </div>
         </div>
     </div>
-    
-    
 
     <br />
     <h4>Люди</h4>

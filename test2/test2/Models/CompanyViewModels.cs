@@ -25,57 +25,48 @@ namespace test2.Models
 
         public ICollection<GroupViewModel> Groups { get; set; }
 
-        public IEnumerable<PositionViewModel> Positions
-        {
-            get
-            {
-                return new List<PositionViewModel>
-                {
-                    new PositionViewModel {Name = ".net Dev", UsersCount = 10, Id = 1},
-                    new PositionViewModel {Name = "php Dev", UsersCount = 12, Id = 2},
-                    new PositionViewModel {Name = "front-end dev", UsersCount = 30, Id = 3},
-                    new PositionViewModel {Name = "designer", UsersCount = 5, Id = 4},
-
-                };
-            }
-        }
+        public ICollection<PositionViewModel> Positions { get; set;}
 
 
 
-        public IEnumerable<EmployeeViewModel> Employees
-        {
-            get
-            {
-                return new List<EmployeeViewModel>
-                {
-                    new EmployeeViewModel {Name = "Иванов Иван", IdGroup = 6, IdPosition = 1, TestPassed = true},
-                    new EmployeeViewModel {Name = "Николаев Николай", IdGroup = 5, IdPosition = 2},
-                    new EmployeeViewModel {Name = "Евгений Евгеньевич", IdGroup = 6, IdPosition = 3, TestPassed = true},
-                    new EmployeeViewModel {Name = "Светлана Сватовна", IdGroup = 5, IdPosition = 4, TestPassed = true},
-                    new EmployeeViewModel {Name = "Денис Денисов", IdGroup = 6, IdPosition = 1},
-                    new EmployeeViewModel {Name = "Анна Ановна", IdGroup = 5, IdPosition = 2},
-                };
-            }
-        }
+        public ICollection<EmployeeViewModel> Employees { get; set; }
 
 
         #region TypeConverter
 
         public static explicit operator CompanyViewModel(Company model)
         {
-            if (model == null) return new CompanyViewModel { UserId = -1};
             CompanyViewModel _view = new CompanyViewModel()
             {
                 Groups = new Collection<GroupViewModel>(),
+                Positions = new Collection<PositionViewModel>(),
+                Employees = new Collection<EmployeeViewModel>(),
                 Mail = model.Mail,
                 Id = model.Id,
                 Name = model.Name,
                 Address = model.Site,
                 UserId = model.UserId
             };
-            foreach (var _group in model.Group)
+            if (model.Group != null)
             {
-                _view.Groups.Add((GroupViewModel)_group);
+                foreach (var _group in model.Group)
+                {
+                    _view.Groups.Add((GroupViewModel)_group);
+                }
+            }
+            if (model.Positions != null)
+            {
+                foreach (var _position in model.Positions)
+                {
+                    _view.Positions.Add((PositionViewModel)_position);
+                }
+            }
+            if (model.Employee != null)
+            {
+                foreach (var _employee in model.Employee)
+                {
+                    _view.Employees.Add((EmployeeViewModel)_employee);
+                }
             }
 
             return _view;
