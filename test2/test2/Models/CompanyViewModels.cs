@@ -20,23 +20,20 @@ namespace test2.Models
         [Required]
         [Display(Name = "Почта компании")]
         public string Mail { get; set; }
-
         public int UserId { get; set; }
 
         public ICollection<GroupViewModel> Groups { get; set; }
-
-        public ICollection<PositionViewModel> Positions { get; set;}
-
-
-
+        public ICollection<PositionViewModel> Positions { get; set; }
         public ICollection<EmployeeViewModel> Employees { get; set; }
 
+        public UserViewModel User { get; set; }
 
         #region TypeConverter
 
         public static explicit operator CompanyViewModel(Company model)
         {
-            CompanyViewModel _view = new CompanyViewModel()
+            if (model == null) return new CompanyViewModel();
+            var _view = new CompanyViewModel()
             {
                 Groups = new Collection<GroupViewModel>(),
                 Positions = new Collection<PositionViewModel>(),
@@ -45,8 +42,15 @@ namespace test2.Models
                 Id = model.Id,
                 Name = model.Name,
                 Address = model.Site,
-                UserId = model.UserId
+                UserId = model.UserId,
+                User = new UserViewModel()
             };
+            if (model.User != null)
+            {
+                _view.User.Id = model.User.Id;
+                _view.User.Name = model.User.Name;
+                _view.User.Password = model.User.Password;
+            }
             if (model.Group != null)
             {
                 foreach (var _group in model.Group)
@@ -75,20 +79,46 @@ namespace test2.Models
         public static implicit operator Company(CompanyViewModel viewModel)
         {
             if (viewModel == null) return new Company { UserId = -1 };
-            Company _company = new Company()
+            var company = new Company()
             {
                 Group = new List<Group>(),
+                Positions = new List<Position>(),
+                Employee = new List<Emploee>(),
                 Mail = viewModel.Mail,
                 Id = viewModel.Id,
                 Name = viewModel.Name,
                 Site = viewModel.Address,
-                UserId = viewModel.UserId
+                UserId = viewModel.UserId,
+                User = new User()
             };
-            foreach (var _group in viewModel.Groups)
+            if (viewModel.User != null)
             {
-                _company.Group.Add(_group);
+                company.User.Id = viewModel.User.Id;
+                company.User.Name = viewModel.User.Name;
+                company.User.Password = viewModel.User.Password;
             }
-            return _company;
+            if (viewModel.Groups != null)
+            {
+                foreach (var group in viewModel.Groups)
+                {
+                    company.Group.Add(group);
+                }
+            }
+            if (viewModel.Positions != null)
+            {
+                foreach (var position in viewModel.Positions)
+                {
+                    company.Positions.Add(position);
+                }
+            }
+            if (viewModel.Employees != null)
+            {
+                foreach (var employee in viewModel.Employees)
+                {
+                    company.Employee.Add(employee);
+                }
+            }
+            return company;
         }
         #endregion
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using HRAPP.EF;
 using System.Data.Entity;
 using System.Linq;
@@ -42,6 +43,16 @@ namespace HRAPP.DAL.Concrete
                 dbEntities.Entry(group).State = EntityState.Modified;
                 dbEntities.SaveChanges();
             }
+        }
+
+        public IEnumerable<Group> ReadByCompany(int idCompany)
+        {
+            using (var dbEntities = new Model1Container())
+            {
+                return dbEntities.Groups.Where(p => p.CompanyId == idCompany).ToList();
+
+            }
+
         }
     }
 }

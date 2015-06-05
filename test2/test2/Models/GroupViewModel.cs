@@ -30,7 +30,8 @@ namespace test2.Models
             return new GroupViewModel
             {
                Id = model.Id,
-               Name = model.Name
+               Name = model.Name,
+               CompanyId = model.CompanyId
  
             };
         }
@@ -41,6 +42,7 @@ namespace test2.Models
             {
                 Id = viewModel.Id,
                 Name = viewModel.Name,
+                CompanyId = viewModel.CompanyId
                 
             };
         }

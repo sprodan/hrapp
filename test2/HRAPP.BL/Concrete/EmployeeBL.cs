@@ -7,29 +7,26 @@ using HRAPP.EF;
 
 namespace HRAPP.BL.Concrete
 {
-    public class UserBL
+    public class EmployeeBL
     {
-        public static User Create(User user)
+        public static int? Create(Emploee emploee)
         {
-            return UserDAL.Instance.Add(user);
-            
+            EmployeeDAL.Instance.Add(emploee);
+            return 1;
         }
 
-        public static User Read(int Id)
+        public static Emploee Read(int Id)
         {
 
-            return UserDAL.Instance.Read(Id);
+            return EmployeeDAL.Instance.Read(Id);
         }
 
-        public static List<User> ReadAll()
+        public static void Update(Emploee employee)
         {
-            return UserDAL.Instance.ReadAll();
+            EmployeeDAL.Instance.Update(employee);
         }
 
-        public static void Update(User group)
-        {
-            UserDAL.Instance.Update(group);
-        }
+        
 
         public bool Delete()
         {

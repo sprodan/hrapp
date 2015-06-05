@@ -7,12 +7,14 @@ namespace HRAPP.BL.Concrete
 {
     public class CompanyBL
     {
-        public int? Create()
+        public static int? Create(User user)
         {
-            throw new NotImplementedException();
-        }
-        public int? Create(Company company)
-        {
+            var company = new Company
+            {
+                UserId = user.Id,
+                Name = "",
+                Mail = ""
+            };
             CompanyDAL.Instance.Add(company);
             return 1;
         }
@@ -21,6 +23,7 @@ namespace HRAPP.BL.Concrete
         {
             throw new NotImplementedException();
         }
+
         public static Company Read(int Id)
         {
             

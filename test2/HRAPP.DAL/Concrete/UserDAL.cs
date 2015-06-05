@@ -18,7 +18,7 @@ namespace HRAPP.DAL.Concrete
 
         #endregion
 
-        public void Add(User user)
+        public User Add(User user)
         {
             try
             {
@@ -26,13 +26,13 @@ namespace HRAPP.DAL.Concrete
                 {
                     dbEntities.Users.Add(user);
                     dbEntities.SaveChanges();
+                    return dbEntities.Users.First(x => x.Name == user.Name);
                 }
 
             }
             catch (Exception)
             {
-
-                throw;
+                return null;
             }
         }
 

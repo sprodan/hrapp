@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Mvc;
 using HRAPP.BL.Concrete;
+using Microsoft.AspNet.Identity;
 using test2.Models;
 
 namespace test2.Controllers
@@ -27,14 +28,10 @@ namespace test2.Controllers
 
         //
         // GET: /Group/Create
-        public ActionResult Create(int _companyId)
+        public ActionResult Create()
         {
-            GroupViewModel _view = new GroupViewModel()
-            {
-                CompanyId = _companyId
-            };
 
-            return View(_view);
+            return View(new GroupViewModel());
         }
 
         //
@@ -46,12 +43,13 @@ namespace test2.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    var id = UserBL.ReadAll().First(u => u.Name == User.Identity.GetUserName()).Id;
+                    viewModel.CompanyId = CompanyBL.Read(id).Id;
+
                     GroupBL.Create(viewModel);
                     return RedirectToAction("../Company/Company");
                 }
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                return View(new GroupViewModel());
             }
             catch
             {

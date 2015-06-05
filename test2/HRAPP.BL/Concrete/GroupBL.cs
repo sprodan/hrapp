@@ -25,6 +25,11 @@ namespace HRAPP.BL.Concrete
             GroupDAL.Instance.Update(group);
         }
 
+        public static IEnumerable<Group> ReadByCompany(int companyId)
+        {
+            return GroupDAL.Instance.ReadByCompany(companyId);
+        }
+
         public bool Delete()
         {
             throw new NotImplementedException();

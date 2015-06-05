@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concrete\CompanyDAL.cs" />
+    <Compile Include="Concrete\EmployeeDAL.cs" />
     <Compile Include="Concrete\GroupDAL.cs" />
     <Compile Include="Concrete\PositionDAL.cs" />
     <Compile Include="Concrete\UserDAL.cs" />

@@ -1,17 +1,17 @@
 ﻿@using Microsoft.AspNet.Identity
+@model test2.Models.CompanyViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model test2.Models.CompanyViewModel
+
 
 <h2>Компания</h2>
 @if (Request.IsAuthenticated)
 {
-    
     <h2>
-        @Html.LabelFor(model => model.UserId)
+        
     </h2>
     <hr>
     using (Html.BeginForm("Edit", "Company", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
@@ -53,7 +53,7 @@
             @foreach (var position in Model.Positions)
             {
                 <div class="col-md-3 col-sm-6 col-xs-12">
-                    <a href="../Position/Position" class="thumbnail">
+                    <a href="../Position/Edit/@position.Id" class="thumbnail">
                     
                             <span class="col-md-12 glyphicon glyphicon-user recicon"></span>
                             <label class="col-md-12 text-center text-md"> @position.Name </label>
@@ -96,7 +96,7 @@
 
 
             <div class="col-md-3  col-sm-6 col-xs-12">
-                <a href="../Group/Create/@Model.Id" class="col-md-12 thumbnail add-box">
+                <a href="../Group/Create" class="col-md-12 thumbnail add-box">
                     <span class="col-md-12 glyphicon glyphicon-plus recicon"></span>
                     <label class="col-md-12 text-center text-big">Добавить Команду</label>
                 </a>
@@ -121,9 +121,9 @@
                         <div class="caption">
                             <h3>@employee.Name</h3>
                             <p>
-                                <i>@Model.Positions.First(p => p.Id == employee.IdPosition).Name</i>
+                                <i>@Model.Positions.First(p => p.Id == employee.Position[0].Id).Name</i>
                             </p>
-                            <p><b>Команда:</b> @Model.Groups.FirstOrDefault(g => g.Id == employee.IdGroup).Name</p>
+                            <p><b>Команда:</b> @Model.Groups.FirstOrDefault(g => g.Id == employee.Group[0].Id).Name</p>
                         </div>
                     </a>
                 }
@@ -136,9 +136,9 @@
                         <div class="caption">
                             <h3>@employee.Name</h3>
                             <p>
-                                <i>@Model.Positions.First(p => p.Id == employee.IdPosition).Name</i>
+                                <i>@Model.Positions.First(p => p.Id == employee.Position[0].Id).Name</i>
                             </p>
-                            <p><b>Команда:</b> @Model.Groups.First(g => g.Id == employee.IdGroup).Name</p>
+                            <p><b>Команда:</b> @Model.Groups.First(g => g.Id == employee.Group[0].Id).Name</p>
                         </div>
                     </a>
                 }
@@ -146,7 +146,7 @@
         }
 
         <div class="col-md-3  col-sm-6 col-xs-12">
-            <a href="../Company/AddPerson" class="col-md-12 thumbnail add-box">
+            <a href="../Employee/Create" class="col-md-12 thumbnail add-box">
                 <span class="col-md-12 glyphicon glyphicon-plus recicon"></span>
                 <label class="col-md-12 text-center text-big">Добавить Человека</label>
             </a>

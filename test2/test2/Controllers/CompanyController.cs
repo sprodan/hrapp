@@ -13,9 +13,18 @@ namespace test2.Controllers
     {
         public ActionResult Company()
         {
-
-            int id = UserBL.ReadAll().First(u => u.Name == User.Identity.GetUserName()).Id;
-            return View((CompanyViewModel)CompanyBL.Read(Convert.ToInt32(id)));
+            try
+            {
+                int id = UserBL.ReadAll().First(u => u.Name == User.Identity.GetUserName()).Id;
+                return View((CompanyViewModel)CompanyBL.Read(Convert.ToInt32(id)));
+            }
+            catch (Exception)
+            {
+                return View((CompanyViewModel)CompanyBL.Read(Convert.ToInt32(-1)));
+                throw;
+            }
+            
+            
         }
 
         [HttpGet]
@@ -26,14 +35,19 @@ namespace test2.Controllers
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult Edit(CompanyViewModel viewModel)
+        public bool Edit(CompanyViewModel viewModel)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    CompanyBL.Update(viewModel);
-                    return View("Company");
+                    int id = UserBL.ReadAll().First(u => u.Name == User.Identity.GetUserName()).Id;
+                    var oldModel = (CompanyViewModel)CompanyBL.Read(Convert.ToInt32(id));
+                    oldModel.Name = viewModel.Name;
+                    oldModel.Address = viewModel.Address;
+                    oldModel.Mail = viewModel.Mail;
+                    CompanyBL.Update(oldModel);
+                    return true;
                 }
                 throw new Exception();
             }
@@ -42,6 +56,7 @@ namespace test2.Controllers
                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
                 throw;
             }
+            
         }
 
         

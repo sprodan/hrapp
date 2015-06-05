@@ -28,17 +28,6 @@ namespace test2.Controllers
         }
 
         
-        public ActionResult Adaptation()
-        {
-            ViewBag.Message = "Страница по адаптации персонала";
-
-            return View();
-        }
-        public ActionResult Motivation()
-        {
-            ViewBag.Message = "Страница по работе с персоналом";
-
-            return View();
-        }
+        
     }
 }

@@ -49,7 +49,7 @@ namespace test2
                 var user = await UserManager.FindAsync(model.UserName, model.Password);
                 if (user != null)
                 {
-                    var accounts = UserBL.ReadAll();
+                    
 
                     await SignInAsync(user, model.RememberMe);
                     return RedirectToLocal(returnUrl);
@@ -86,7 +86,8 @@ namespace test2
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    UserBL.Create(model);
+                    CompanyBL.Create(UserBL.Create(model));
+                    
                     await SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
