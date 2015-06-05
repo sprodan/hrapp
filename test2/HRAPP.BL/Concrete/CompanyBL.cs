@@ -13,9 +13,14 @@ namespace HRAPP.BL.Concrete
             {
                 UserId = user.Id,
                 Name = "",
-                Mail = ""
+                Mail = "",
+                Employee = new List<Emploee>(),
+                Group = new List<Group>(),
+                Positions = new List<Position>(),
+                Site = ""
             };
-            CompanyDAL.Instance.Add(company);
+            company = CompanyDAL.Instance.Add(company);
+
             return 1;
         }
 

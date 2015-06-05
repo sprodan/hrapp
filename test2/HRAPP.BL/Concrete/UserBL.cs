@@ -12,7 +12,6 @@ namespace HRAPP.BL.Concrete
         public static User Create(User user)
         {
             return UserDAL.Instance.Add(user);
-            
         }
 
         public static User Read(int Id)

@@ -42,7 +42,7 @@ namespace test2.Controllers
             }
             catch
             {
-                return View();
+                return View(new PositionViewModel());
             }
         }
 

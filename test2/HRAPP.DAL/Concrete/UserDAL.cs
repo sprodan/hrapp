@@ -26,13 +26,12 @@ namespace HRAPP.DAL.Concrete
                 {
                     dbEntities.Users.Add(user);
                     dbEntities.SaveChanges();
-                    return dbEntities.Users.First(x => x.Name == user.Name);
+                    return user;
                 }
-
             }
             catch (Exception)
             {
-                return null;
+                throw;
             }
         }
 

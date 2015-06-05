@@ -17,12 +17,13 @@ namespace HRAPP.DAL.Concrete
 
         #endregion
 
-        public void Add(Company company)
+        public Company Add(Company company)
         {
             using (var dbEntities = new Model1Container())
             {
                 dbEntities.Companies.Add(company);
                 dbEntities.SaveChanges();
+                return company;
             }
         }
 

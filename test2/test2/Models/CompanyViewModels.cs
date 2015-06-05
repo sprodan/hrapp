@@ -7,6 +7,13 @@ namespace test2.Models
 {
     public class CompanyViewModel
     {
+        private CompanyViewModel()
+        {
+            Groups = new List<GroupViewModel>();
+            Positions = new List<PositionViewModel>();
+            Employees = new List<EmployeeViewModel>();
+            User = new UserViewModel();
+        }
         public int Id { get; set; }
 
         [Required]
