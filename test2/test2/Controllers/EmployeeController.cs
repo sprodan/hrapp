@@ -15,7 +15,7 @@ namespace test2.Controllers
         public ActionResult Create()
         {
             var id = UserBL.ReadAll().First(u => u.Name == User.Identity.GetUserName()).Id;
-            
+
             ViewBag.Positions = PositionBL.ReadByCompany(CompanyBL.Read(id).Id);
             ViewBag.Groups = GroupBL.ReadByCompany(CompanyBL.Read(id).Id);
             return View(new EmployeeViewModel());
@@ -27,6 +27,7 @@ namespace test2.Controllers
         {
             try
             {
+                //var errors = ModelState.Where(x => x.Value.Errors.Count > 0).Select(x => new { x.Key, x.Value.Errors }).ToArray();
                 if (ModelState.IsValid)
                 {
                     EmployeeBL.Create(viewModel);
@@ -34,7 +35,7 @@ namespace test2.Controllers
                 }
                 return View(new EmployeeViewModel());
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }

@@ -26,7 +26,10 @@ namespace HRAPP.BL.Concrete
             EmployeeDAL.Instance.Update(employee);
         }
 
-        
+        public static List<Emploee> ReadByCompany(int companyId)
+        {
+            return EmployeeDAL.Instance.ReadByCompanyId(companyId);
+        }
 
         public bool Delete()
         {

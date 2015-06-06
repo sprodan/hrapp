@@ -8,8 +8,8 @@ namespace test2.Models
     {
         public EmployeeViewModel()
         {
-            Group = new List<GroupViewModel>();
-            Position = new List<PositionViewModel>();
+            GroupId = new List<int>();
+            PositionId = new List<int>();
         }
 
         public int Id { get; set; }
@@ -17,8 +17,8 @@ namespace test2.Models
         public string Name { get; set; }
         public string LastName { get; set; }
 
-        public List<GroupViewModel> Group { get; set; }
-        public List<PositionViewModel> Position { get; set; }
+        public List<int> GroupId { get; set; }
+        public List<int> PositionId { get; set; }
          
         public bool TestPassed => true;
 
@@ -30,8 +30,9 @@ namespace test2.Models
             {
                 Id = model.Id,
                 Name = model.Name,
-                Group = new List<GroupViewModel>(),
-                Position = new List<PositionViewModel>()
+                LastName = model.LastName,
+                GroupId = new List<int>(),
+                PositionId = new List<int>()
                 
             };
 
@@ -42,7 +43,7 @@ namespace test2.Models
                     Id = @group.Id
                 }))
                 {
-                    employeeModel.Group.Add(groupModel);
+                    employeeModel.GroupId.Add(groupModel.Id);
                 }
             }
 
@@ -53,7 +54,7 @@ namespace test2.Models
                     Id = @position.Id
                 }))
                 {
-                    employeeModel.Position.Add(positionModel);
+                    employeeModel.PositionId.Add(positionModel.Id);
                 }
             }
             return employeeModel;
@@ -65,24 +66,25 @@ namespace test2.Models
             {
                 Id = viewModel.Id,
                 Name = viewModel.Name,
+                LastName = viewModel.LastName,
                 EmploeeCriterion = new List<EmploeeCriterion>(),
                 EmploeeGroup = new List<EmploeeGroup>(),
                 EmploeePositions = new List<EmploeePosition>()
             };
-            if (viewModel.Group != null)
+            if (viewModel.GroupId != null)
             {
-                foreach (var groupModel in viewModel.Group)
+                foreach (var groupId in viewModel.GroupId)
                 {
-                    var group = new EmploeeGroup {GroupId = groupModel.Id, EmploeeId = viewModel.Id};
+                    var group = new EmploeeGroup {GroupId = groupId, EmploeeId = viewModel.Id};
                     employee.EmploeeGroup.Add(group);
                 }
             }
 
-            if (viewModel.Position != null)
+            if (viewModel.PositionId != null)
             {
-                foreach (var positionModel in viewModel.Position)
+                foreach (var positionId in viewModel.PositionId)
                 {
-                    var position = new EmploeePosition { PositionId = positionModel.Id, EmploeeId = viewModel.Id };
+                    var position = new EmploeePosition { PositionId = positionId, EmploeeId = viewModel.Id };
                     employee.EmploeePositions.Add(position);
                 }
             }

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using HRAPP.BL.Concrete;
 using test2.Models;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json.Serialization;
 
 namespace test2.Controllers
 {
@@ -16,7 +17,14 @@ namespace test2.Controllers
             try
             {
                 int id = UserBL.ReadAll().First(u => u.Name == User.Identity.GetUserName()).Id;
-                return View((CompanyViewModel)CompanyBL.Read(Convert.ToInt32(id)));
+                var company = (CompanyViewModel)CompanyBL.Read(Convert.ToInt32(id));
+                //ERROR Couldn't convert
+                //company.Employees = (EmployeeViewModel)EmployeeBL.ReadByCompany(company.Id);
+                if(company.Employees == null) company.Employees = new List<EmployeeViewModel>();
+                if(company.Groups == null) company.Groups = new List<GroupViewModel>();
+                if(company.Positions == null) company.Positions = new List<PositionViewModel>();
+
+                return View(company);
             }
             catch (Exception)
             {

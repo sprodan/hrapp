@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using HRAPP.EF;
+using Microsoft.SqlServer.Server;
 
 namespace HRAPP.DAL.Concrete
 {
@@ -44,6 +45,22 @@ namespace HRAPP.DAL.Concrete
             }
         }
 
-        
+
+        public List<Emploee> ReadByCompanyId(int companyId)
+        {
+            using (var dbEntities = new Model1Container())
+            {
+                var positions = dbEntities.Positions.Where(position => position.CompanyId == companyId).ToList();
+
+                var employees = new List<Emploee>();
+
+                foreach (var emploee in dbEntities.EmploeePositions)
+                {
+                    employees.AddRange(from position in positions where emploee.PositionId == position.Id select dbEntities.Emploees.First(m => m.Id == emploee.Id));
+                }
+
+                return employees;
+            }
+        }
     }
 }

@@ -121,9 +121,9 @@
                         <div class="caption">
                             <h3>@employee.Name</h3>
                             <p>
-                                <i>@Model.Positions.First(p => p.Id == employee.Position[0].Id).Name</i>
+                                <i>@Model.Positions.First(p => p.Id == employee.PositionId[0]).Name</i>
                             </p>
-                            <p><b>Команда:</b> @Model.Groups.FirstOrDefault(g => g.Id == employee.Group[0].Id).Name</p>
+                            <p><b>Команда:</b> @Model.Groups.FirstOrDefault(g => g.Id == employee.GroupId[0]).Name</p>
                         </div>
                     </a>
                 }
@@ -136,9 +136,9 @@
                         <div class="caption">
                             <h3>@employee.Name</h3>
                             <p>
-                                <i>@Model.Positions.First(p => p.Id == employee.Position[0].Id).Name</i>
+                                <i>@Model.Positions.First(p => p.Id == employee.PositionId[0]).Name</i>
                             </p>
-                            <p><b>Команда:</b> @Model.Groups.First(g => g.Id == employee.Group[0].Id).Name</p>
+                            <p><b>Команда:</b> @Model.Groups.First(g => g.Id == employee.GroupId[0]).Name</p>
                         </div>
                     </a>
                 }
